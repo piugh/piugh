@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Entities">
+  <class name="Domain.Entities.Location,Domain" table="Location">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="loaction_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+      <property name="Name" type="string">
+        <column name="name" sql-type="nvarchar(30)"  length="30"/>
+      </property>
+      <property name="CreateName" type="string">
+        <column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+      </property>
+      <property name="CreateTime" type="DateTime">
+        <column name="create_time" sql-type="datetime"/>
+      </property>
+      <property name="Aim" type="string">
+        <column name="aim" sql-type="nvarchar(100)"  length="100"/>
+      </property>
+      <property name="Remark" type="string">
+        <column name="remark" sql-type="text"/>
+      </property>
+    <property name="LongitudeUpper" type="int">
+      <column name="longitude_upper" sql-type="int"/>
+    </property>
+    <property name="LongitudeLower" type="int">
+      <column name="longitude_lower" sql-type="int"/>
+    </property>
+    <property name="LatitudeUpper" type="int">
+      <column name="latitude_upper" sql-type="int"/>
+    </property>
+    <property name="LatitudeLower" type="int">
+      <column name="latitude_lower" sql-type="int"/>
+    </property>
+    <set name="LocationConfigs" table="Location_Config" generic="true" inverse="true" cascade="all">
+      <key column="loaction_guid"  foreign-key="FK_Config_Loaction"></key>
+      <one-to-many class="Domain.Entities.LocationConfig,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>

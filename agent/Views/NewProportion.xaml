@@ -1,0 +1,102 @@
+﻿<Window x:Class="agent.Views.NewProportion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"   
+             Name="NewItem"
+             Title="新建统计比例方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="LightBlue">
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding Path = NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Label Content="输入信息不能为空！" Height="30" Margin="320 0 0 0" FontSize="14" Foreground="Red"
+                               Visibility="{Binding Warning}"/>
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="地理分布">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <DataGrid  Height="360"  Width="780" Margin="40 0" FontSize="15" 
+                               CanUserAddRows="False" AutoGenerateColumns="False" 
+                               CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False"
+                               ItemsSource="{Binding NewLocationConfigs}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="地区名称" Binding="{Binding Location.Name}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="经度上限" Binding="{Binding Location.LongitudeUpper}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="经度下限" Binding="{Binding Location.LongitudeLower}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="纬度上限" Binding="{Binding Location.LatitudeUpper}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="纬度下限" Binding="{Binding Location.LatitudeLower}" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="分布比例" Binding="{Binding Value}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Button  Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next2}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Header="个体信息">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <ScrollViewer Height="360" Width="780"  Margin="40 0" FontSize="15">
+                            <TreeView Padding="0" Margin="0" BorderThickness="1" 
+                                      ItemsSource="{Binding Path=TreeDatas}">
+                                <TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate ItemsSource="{Binding Path=TreeDatas}">
+                                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}"></TextBlock>
+                                            <TextBox Text="{Binding Value}" Width="100" Margin="10,0,0,0"/>
+                                            <StackPanel.ToolTip>
+                                                <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                                            </StackPanel.ToolTip>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>
+                        </ScrollViewer>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+            
+    </Grid>
+    
+</Window>

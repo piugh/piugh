@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.AnimalAnomaly,Domain" table="Animal_Anomaly">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="animal_anomaly_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+    <property name="Name" type="string">
+      <column name="name" sql-type="nvarchar(30)"  length="30"/>
+    </property>
+    <property name="Order" type="int">
+      <column name="order_num" sql-type="int"/>
+    </property>
+    <!---->
+    <set name="AnimalConfigs" table="Animal_Config" generic="true" inverse="true" cascade="all">
+      <key column="animal_anomaly_guid"  foreign-key="FK_Config_Animal"></key>
+      <one-to-many class="Domain.Information.Entities.AnimalConfig,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>

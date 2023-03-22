@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Rumor.Views.Rumor_Knowlege"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="#1C93EC" CornerRadius="20,20,20,20" Margin="5 5 0 5"></Border>
+        <!--左侧菜单栏-->
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
+            <TextBlock Text="菜单" Foreground="White" FontSize="20" FontWeight="Heavy" Margin="0 10 0 5" HorizontalAlignment="Center"/>
+            <Button Content="消息方案" Background="LightBlue" BorderBrush="Transparent" Margin="0 5 0 0"  Height="30" Width="130" Command="{Binding Manage}" CommandParameter="Message"/>
+            <Button Content="消息队列方案" Background="LightBlue" BorderBrush="Transparent"  Margin="0 5 0 0" Height="30" Width="130" Command="{Binding Manage}" CommandParameter="MessageQueue"/>
+            <Button Content="命题方案" Background="LightBlue" BorderBrush="Transparent" Margin="0 5 0 0"  Height="30" Width="130" Command="{Binding Manage}" CommandParameter="Experience"/>
+            <Button Content="命题队列方案" Background="LightBlue" BorderBrush="Transparent" Margin="0 5 0 0"  Height="30" Width="130" Command="{Binding Manage}" CommandParameter="ExperienceQueue"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

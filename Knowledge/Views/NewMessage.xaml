@@ -1,0 +1,471 @@
+﻿<Window x:Class="Knowledge.Views.NewMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"  
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             Name="NewItem"
+             Title="新建谣言方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Window.Resources>
+        <Style TargetType="DataGridCell">
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="LightBlue">
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Label Content="输入信息不能为空！" Height="30" Margin="320 0 0 0" FontSize="14" Foreground="Red"
+                               Visibility="{Binding Warning}"/>
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="征兆信息配置">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <!--生物异常-->
+                        <Border Grid.Column="0" CornerRadius="20" Background="WhiteSmoke" Margin="0 0 3 0"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="0" Width="160">
+                            <Label Content="生物异常" FontSize="14" HorizontalContentAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[0].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[0].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[0].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[0].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[1].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[1].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[1].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[1].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[2].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[2].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[2].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[2].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[3].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[3].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[3].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[3].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[4].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[4].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[4].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[4].Value}" SelectedIndex="0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[5].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[5].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[5].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[5].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding AnimalConfigs[6].IsAdd}" Width="20"/>
+                                <Label Content="{Binding AnimalConfigs[6].AnimalAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding AnimalConfigs[6].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding AnimalConfigs[6].Value}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--气候异常-->
+                        <Border Grid.Column="1" CornerRadius="20" Background="WhiteSmoke" Margin="0 0 3 0"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Width="160">
+                            <Label Content="气候异常" FontSize="14" HorizontalContentAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                                <CheckBox IsChecked="{Binding ClimateConfigs[0].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ClimateConfigs[0].ClimateAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ClimateConfigs[0].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ClimateConfigs[0].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ClimateConfigs[1].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ClimateConfigs[1].ClimateAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ClimateConfigs[1].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ClimateConfigs[1].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ClimateConfigs[2].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ClimateConfigs[2].ClimateAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ClimateConfigs[2].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ClimateConfigs[2].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ClimateConfigs[3].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ClimateConfigs[3].ClimateAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ClimateConfigs[3].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ClimateConfigs[3].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ClimateConfigs[4].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ClimateConfigs[4].ClimateAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ClimateConfigs[4].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ClimateConfigs[4].Value}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--电磁异常-->
+                        <Border Grid.Column="2" CornerRadius="20" Background="WhiteSmoke" Margin="0 0 3 0"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="2" Width="160">
+                            <Label Content="电磁异常" FontSize="14" HorizontalContentAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                                <CheckBox IsChecked="{Binding ElectroConfigs[0].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ElectroConfigs[0].ElectroAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ElectroConfigs[0].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ElectroConfigs[0].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left"  Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ElectroConfigs[1].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ElectroConfigs[1].ElectroAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ElectroConfigs[1].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ElectroConfigs[1].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left"  Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ElectroConfigs[2].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ElectroConfigs[2].ElectroAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ElectroConfigs[2].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ElectroConfigs[2].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left"  Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ElectroConfigs[3].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ElectroConfigs[3].ElectroAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ElectroConfigs[3].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ElectroConfigs[3].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left"  Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding ElectroConfigs[4].IsAdd}" Width="20"/>
+                                <Label Content="{Binding ElectroConfigs[4].ElectroAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding ElectroConfigs[4].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding ElectroConfigs[4].Value}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--地面异常-->
+                        <Border Grid.Column="3" CornerRadius="20" Background="WhiteSmoke" Margin="0 0 3 0"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="3" Width="160">
+                            <Label Content="地面异常" FontSize="14" HorizontalContentAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                                <CheckBox IsChecked="{Binding GroundConfigs[0].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundConfigs[0].GroundAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundConfigs[0].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundConfigs[0].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundConfigs[1].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundConfigs[1].GroundAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundConfigs[1].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundConfigs[1].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundConfigs[2].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundConfigs[2].GroundAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundConfigs[2].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundConfigs[2].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundConfigs[3].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundConfigs[3].GroundAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundConfigs[3].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundConfigs[3].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundConfigs[4].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundConfigs[4].GroundAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundConfigs[4].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundConfigs[4].Value}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <!--地下水异常-->
+                        <Border Grid.Column="4" CornerRadius="20" Background="WhiteSmoke" Margin="0 0 3 0"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="4" Width="160">
+                            <Label Content="地下水异常" FontSize="14" HorizontalContentAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[0].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[0].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[0].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[0].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[1].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[1].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[1].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[1].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[2].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[2].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[2].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[2].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[3].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[3].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[3].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[3].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[4].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[4].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[4].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[4].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[5].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[5].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[5].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[5].Value}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="160" HorizontalAlignment="Left" Margin="0 20 0 0">
+                                <CheckBox IsChecked="{Binding GroundwaterConfigs[6].IsAdd}" Width="20"/>
+                                <Label Content="{Binding GroundwaterConfigs[6].GroundwaterAnomaly.Name}" Width="60"/>
+                                <ComboBox Width="80" IsEnabled="{Binding GroundwaterConfigs[6].IsAdd}" 
+                                          ItemsSource="{Binding OmenValues}" DisplayMemberPath="Name" 
+                                          SelectedItem="{Binding GroundwaterConfigs[6].Value}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button Content="下一步" Height="30" Width="120" Margin="0 10 20 0" Background="LightBlue" BorderBrush="Transparent" 
+                                Command="{Binding Next2}" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="危机信息配置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <!--危机细节配置-->
+                    <StackPanel Grid.Row="0">
+                        <Label Content="危机细节配置" Background="AliceBlue" FontSize="14" FontWeight="Bold"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Separator BorderThickness="2" BorderBrush="Black" Margin="0 5 0 5"/>
+                        <!--危机名称-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <CheckBox IsChecked="{Binding SelectedCrisis.IsAdd}"/>
+                            <Label Content="危机名称" FontSize="14" FontWeight="SemiBold"/>
+                            <ComboBox Name="SelectedCrisisList" Width="120" Margin="20 0 0 0" FontSize="16" FontWeight="Bold"
+                                      ItemsSource="{Binding Crisis}" DisplayMemberPath="Type.Name" 
+                                      SelectedItem="{Binding SelectedCrisis}"/>
+
+                        </StackPanel>
+                        <Separator BorderThickness="2" BorderBrush="Black" Margin="0 5 0 5"/>
+                        <!--危机细节属性-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" IsEnabled="{Binding SelectedCrisis.IsAdd}">
+                            <StackPanel Orientation="Vertical" Margin="0 20 100 0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="严重程度" FontSize="16"/>
+                                    <ComboBox Name="LevelList" Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                              ItemsSource="{Binding crisisLevels}" DisplayMemberPath="Name"
+                                              SelectedItem="{Binding SelectedCrisis.Level}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="持续时间" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding crisisPersistentTimes}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding SelectedCrisis.PersistentTime}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0 20 100 0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="发生频率" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding crisisFrequences}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding SelectedCrisis.Frequence}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="距征兆时间" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding crisisTimeSpans}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding SelectedCrisis.TimeSpan}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--危机选择-->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="4*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="危机配置" Background="AliceBlue" FontSize="14" FontWeight="Bold"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding Crisis}" 
+                                  HorizontalAlignment="Center" BorderThickness="2" VerticalAlignment="Center"
+                                  CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False"
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            <DataGrid.LayoutTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90"/>
+                                    <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                                </TransformGroup>
+                            </DataGrid.LayoutTransform>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="征兆名称" Binding="{Binding Type.Name}"/>
+                                <DataGridCheckBoxColumn Header="是否已添加" Binding="{Binding IsAdd}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Canvas Grid.Row="2">
+                        <Button  Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next3}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Header="后果信息配置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <!--后果信息配置-->
+                    <StackPanel Grid.Row="0">
+                        <Label Content="后果信息配置" Background="AliceBlue" FontSize="16" FontWeight="Bold"
+                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Separator BorderThickness="2" BorderBrush="Black" Margin="0 5 0 5"/>
+                        <!--后果属性-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Vertical" Margin="0 0 100 0" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="人员损失" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding casualties}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.Casualty}" SelectedIndex="2"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="经济损失" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding economyLosses}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.EconomyLoss}" SelectedIndex="4"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="影响范围" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding influenceScopes}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.InfluenceScope}" SelectedIndex="4"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="持续时间" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding persistentTimes}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.PersistentTime}" SelectedIndex="0"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="未成年人损失" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding minorCasualties}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.MinorCasualty}" SelectedIndex="5"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="建筑物损失" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding buildingLosses}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.BuildingLoss}" SelectedIndex="0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="日常生活影响程度" FontSize="16"/>
+                                    <ComboBox Width="120" Margin="20 0 0 0" FontWeight="Bold"
+                                      ItemsSource="{Binding impactOfDailies}"  DisplayMemberPath="Name"
+                                      SelectedItem="{Binding Result.ImpactOfDaily}" SelectedIndex="4"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <Canvas Grid.Row="2">
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Network.Entities">
+  <class name="Domain.Network.Entities.ModelParaConfig,Domain" table="Model_Para_Config">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="model_para_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <property name="Value" type="string">
+      <column name="value" sql-type="nvarchar(30)"  length="30" />
+     </property>
+    <!---->
+    <many-to-one name="OptionalParaConfig" column="optional_para_config_guid"
+  class="Domain.Network.Entities.OptionalParaConfig,Domain"
+  foreign-key="FK_Model_Para_Config_Para" />
+    <many-to-one name="ModelPara" column="model_para_guid"
+  class="Domain.Network.Entities.ModelPara,Domain"
+  foreign-key="FK_Model_Para_Config_Model" />
+  </class>
+</hibernate-mapping>

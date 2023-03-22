@@ -1,0 +1,81 @@
+﻿<Window x:Class="agent.Views.NewInitialAgent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:agent.Views"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"             
+             Name="NewItem"
+             Title="新建初始个体集方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="LightBlue">
+        <Label Content="输入信息有误！" Height="30" Margin="320 0 0 20" FontSize="14" Foreground="Red" VerticalAlignment="Bottom"
+                               Visibility="{Binding Warning}"/>
+        
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding Path = NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="初始个体集设计">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="个体数量:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Width="500" Margin="150 40" FontSize="14"
+                                 Text="{Binding Path = AgentNum}"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="统计比例方案" Height="40" Width="120" Margin="30 20" FontSize="14" />
+                        <ListBox x:Name="ProportionList" Height="120" Width="500" Margin="150 20" FontSize="14" BorderBrush="Transparent"
+                                ItemsSource="{Binding Path=ProportionNames}"                                                    
+                                ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged" >
+                                    <prism:InvokeCommandAction Command="{Binding SelectProportion}" CommandParameter="{Binding SelectedItem, ElementName=ProportionList}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ListBox>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <TextBox Text="{Binding SelectedItem.Name}" Height="40" Width="120"/>
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

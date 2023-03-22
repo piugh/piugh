@@ -1,0 +1,71 @@
+﻿<Window x:Class="Rumor.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="LightCyan"
+        Title="{Binding Title}"
+        Height="600" Width="1024" >
+    <!--6行是prism自动载入vm的、7行是窗体出现位置、8行是去除边框-->
+    <Window.Resources >
+        <ResourceDictionary>
+            <!--导航栏TabControl格式-->
+            <Style x:Key="MyTab" TargetType="TabItem" >
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Foreground" Value="Gray"/>
+                <Setter Property="Background" Value="SkyBlue"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+            </Style >
+        </ResourceDictionary >
+    </Window.Resources >
+    <Grid>
+        <!--整体分区：标题、导航和主界面-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+
+        <!--导航栏设计-->
+        <Grid Grid.RowSpan="2" Background="#1C93EC">
+            <Polygon Points="600,0 2000,0 2000,100 750,100" Fill="#3448A1"/>
+            <Polygon Points="600,0 780,0 700,65" Fill="#3E58C9"/>
+            <Polygon Points="0,0 600,0 756,100 0,100" Fill="#1C93EC"/>
+        </Grid>
+               
+        <!--标题-->
+        <TextBlock Grid.Row="0" Margin="20 5 0 0" Text="谣言传播计算实验系统" Foreground="WhiteSmoke"
+                   FontStyle="Italic" FontFamily="s" FontWeight="Bold" FontSize="25"/>
+        
+        <!--右上角窗口调试-->
+        <Grid Grid.Row="0" Background="Transparent" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="0,0,5,0" Name="BtnMin" Click="BtnMin_Click" Foreground="White" FontSize="20" Background="Transparent" BorderBrush="Transparent">-</Button>
+                <Button Margin="0,0,5,0" Name="BtnMax" Click="BtnMax_Click" Foreground="White" FontSize="20" Background="Transparent" BorderBrush="Transparent">□</Button>
+                <Button Margin="0,0,5,0" Name="BtnClose" Click="BtnClose_Click" Foreground="White" FontSize="20" Background="Transparent" BorderBrush="Transparent">x</Button>
+            </StackPanel>
+        </Grid>
+        
+        <!--管理按钮设计-->
+        <TabControl Grid.Row="1" BorderThickness="0" SelectionChanged="SelectFunc" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <TabItem Header="个体管理" Style="{StaticResource MyTab}"/>
+            <TabItem Header="网络管理" Style="{StaticResource MyTab}"/>
+            <TabItem Header="消息管理" Style="{StaticResource MyTab}"/>
+            <TabItem Header="计算实验管理" Style="{StaticResource MyTab}"/>
+        </TabControl>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="MenuRegion" />
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ListOfItem" />
+            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="DetialOfItem" />
+        </Grid>
+        
+    </Grid>
+</Window>

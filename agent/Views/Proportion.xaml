@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="agent.Views.Proportion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:agent.Views"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="520" d:DesignWidth="574"
+             xmlns:prism="http://prismlibrary.com/" 
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
+        <!--详细信息模块-->
+        <TabControl Margin="20">
+            <TabItem Header="基本信息">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="方案名称:" Margin="20" FontSize="18" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="120 20 20 20" FontSize="18"  Text="{Binding SelectedItem.Name}" />
+
+                    <TextBlock Grid.Row="1" Text="创建者:" Margin="20" FontSize="18" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.CreateName}" />
+
+                    <TextBlock Grid.Row="2" Text="创建时间:" Margin="20" FontSize="18" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.CreateTime}"/>
+
+                    <TextBlock Grid.Row="3" Text="备注信息:" Margin="20" FontSize="18" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.Remark}"/>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="饼状图">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                   
+                    <!--<lvc:PieChart Grid.Row="0" Grid.Column="0" DataClick="pipChart_DataClick" Hoverable="False">
+                        <lvc:PieChart.Series>
+                            <lvc:PieSeries Title="Maria" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="3"/>
+                            <lvc:PieSeries Title="Charles" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="4"/>
+                            <lvc:PieSeries Title="Frida" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="6"/>
+                            <lvc:PieSeries Title="Frederic" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="2"/>
+                        </lvc:PieChart.Series>
+                    </lvc:PieChart>-->
+                    
+                    <!--<lvc:PieChart Grid.Row="0" Grid.Column="1" LegendLocation="Bottom"  Series="{Binding occupationSeries}"  Hoverable="False" >
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="10"/>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>-->
+                    <Label Grid.Row="0" Content="整体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Label Grid.Row="1" Content="具体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+
+
+
+                </Grid>
+
+
+
+            </TabItem>
+            <TabItem Header="树状图">
+                <ScrollViewer Margin="40 0" FontSize="15">
+                    <TreeView Padding="0" Margin="0" BorderThickness="1" 
+                                      ItemsSource="{Binding Path=TreeDatas}">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Path=TreeDatas}">
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}"></TextBlock>
+                                    <TextBox Text="{Binding Value}" Width="100" Margin="10,0,0,0"/>
+                                    <StackPanel.ToolTip>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
+                                    </StackPanel.ToolTip>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

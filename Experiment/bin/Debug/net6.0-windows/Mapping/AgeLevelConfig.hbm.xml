@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Entities">
+	<class name="Domain.Entities.AgeLevelConfig,Domain" table="AgeLevel_Config">
+		<!--主键，编号-->
+		<id name="Guid" type="Guid" >
+			<column name="ageLevel_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+		</id>
+		<property name="Value" type="double">
+			<column name="config_value" sql-type="float(53)" not-null="true"/>
+		</property>
+    <property name="WomenProportion" type="double">
+      <column name="women_proportion" sql-type="float(53)"/>
+    </property>
+    <property name="MenProportion" type="double">
+      <column name="men_proportion" sql-type="float(53)"/>
+    </property>
+    <many-to-one name="AgeLevel" column="age_level_guid"
+			  class="Domain.Entities.AgeLevel,Domain"
+			 foreign-key="FK_Config_AgeLevel" />
+    <many-to-one name="EduLevelConfig" column="edu_level_config_guid"
+    class="Domain.Entities.EduLevelConfig,Domain"
+   foreign-key="FK_Config_AgeLevel_EduLevel" />
+		<many-to-one name="AgentSetProportion" column="proportion_guid"
+			class="Domain.Entities.AgentSetProportion,Domain"
+			foreign-key="FK_Agent_Set_Proportion_AgeLevel_Config" />
+	</class>
+</hibernate-mapping>

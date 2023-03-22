@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\InitialAgent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LearnAgent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewInitialAgent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewProportion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Proportion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\InitialAgent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LearnAgent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewInitialAgent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewProportion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Proportion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

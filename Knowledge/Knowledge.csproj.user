@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\Experience.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExperienceQueu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Message.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MessageQueu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewMessage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Experience.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExperienceQueu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Message.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MessageQueu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewMessage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewA.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

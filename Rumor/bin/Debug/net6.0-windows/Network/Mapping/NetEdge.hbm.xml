@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Network.Entities">
+  <class name="Domain.Network.Entities.NetEdge,Domain" table="Net_Edge">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="optional_para_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <many-to-one name="Node1" column="net_node1_guid"
+			  class="Domain.Network.Entities.NetNode,Domain"
+			 foreign-key="FK_Node1_Edge" />
+    <many-to-one name="Node2" column="net_node2_guid"
+			class="Domain.Network.Entities.NetNode,Domain"
+			foreign-key="FK_Node2_Edge" />
+	  <many-to-one name="NetworkResult" column="network_result_guid"
+  class="Domain.Network.Entities.NetworkResult,Domain"
+  foreign-key="FK_Result_Edge" />
+  </class>
+</hibernate-mapping>

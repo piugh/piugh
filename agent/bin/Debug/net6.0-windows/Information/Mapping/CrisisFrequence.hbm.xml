@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.CrisisFrequence,Domain" table="Crisis_Frequence">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="crisis_frequence_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+    <property name="Name" type="string">
+      <column name="name" sql-type="nvarchar(30)"  length="30"/>
+    </property>
+    <property name="EumBinary" type="string">
+      <column name="eum_binary" sql-type="nvarchar(30)"  length="30"/>
+    </property>
+    <!---->
+    <set name="Crises" table="Crisis" generic="true" inverse="true" cascade="all">
+      <key column="crisis_frequence_guid"  foreign-key="FK_Crisis_Frequence"></key>
+      <one-to-many class="Domain.Information.Entities.Crisis,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>
