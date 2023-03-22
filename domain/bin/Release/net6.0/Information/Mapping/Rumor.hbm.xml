@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.Rumor,Domain" table="Rumor">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid">
+      <column name="rumor_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+    <component name="BaseInfo" class="Domain.BaseInfo,Domain">
+      <property name="Name" type="string">
+        <column name="name" sql-type="nvarchar(30)"  length="30" />
+      </property>
+      <property name="CreateName" type="string">
+        <column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+      </property>
+      <property name="CreateTime" type="DateTime">
+        <column name="create_time" sql-type="datetime"/>
+      </property>
+      <property name="Aim" type="string">
+        <column name="aim" sql-type="nvarchar(100)"  length="100"/>
+      </property>
+      <property name="Remark" type="string">
+        <column name="remark" sql-type="text"/>
+      </property>
+    </component>
+    <property name="RumorEumBinary" type="string">
+      <column name="rumor_eum_binary" sql-type="nvarchar(500)"/>
+    </property>
+    <property name="OmenEumBinary" type="string">
+      <column name="omen_eum_binary" sql-type="nvarchar(200)"/>
+    </property>
+    <property name="CrisisEumBinary" type="string">
+      <column name="crisis_eum_binary" sql-type="nvarchar(200)"/>
+    </property>
+    <property name="ResultEumBinary" type="string">
+      <column name="result_eum_binary" sql-type="nvarchar(200)"/>
+    </property>
+    <set name="Omens" table="Omen" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Omen_Rumor"></key>
+      <one-to-many class="Domain.Information.Entities.Omen,Domain"  />
+    </set>
+    <set name="Crisises" table="Crisis" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Crisis_Rumor"></key>
+      <one-to-many class="Domain.Information.Entities.Crisis,Domain"  />
+    </set>
+    <set name="Results" table="Result" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Result_Rumor"></key>
+      <one-to-many class="Domain.Information.Entities.Result,Domain"  />
+    </set>
+    <set name="Propositions" table="Proposition" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Proposition_Rumor"></key>
+      <one-to-many class="Domain.Information.Entities.Proposition,Domain"  />
+    </set>
+    <set name="RumorQueueConfigs" table="Rumor_Queue_Config" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Config_Rumor"></key>
+      <one-to-many class="Domain.Information.Entities.RumorQueueConfig,Domain"  />
+    </set>
+    <set name="Experiments" table="Experiment" generic="true" inverse="true" cascade="all">
+      <key column="rumor_guid"  foreign-key="FK_Experiment_Rumor"></key>
+      <one-to-many class="Domain.Entities.Experiment,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>

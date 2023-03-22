@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Entities">
+	<class name="Domain.Entities.OccupationConfig,Domain" table="Occupation_Config">
+		<!--主键，编号-->
+		<id name="Guid" type="Guid" >
+			<column name="occupation_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+		</id>
+		<property name="Value" type="double">
+			<column name="config_value" sql-type="float(53)" not-null="true"/>
+		</property>
+		<many-to-one name="Occupation" column="occupation_guid"
+			  class="Domain.Entities.Occupation,Domain"
+			 foreign-key="FK_Config_Occupation" />
+		<many-to-one name="AgentSetProportion" column="proportion_guid"
+			class="Domain.Entities.AgentSetProportion,Domain"
+			foreign-key="FK_Agent_Set_Proportion_Occupation_Config" />
+    <set name="EduLevelConfigs" table="Edu_Level_Config" generic="true" inverse="true" cascade="all">
+      <key column="occupation_config_guid"  foreign-key="FK_Config_EduLevel_Occupation"></key>
+      <one-to-many class="Domain.Entities.EduLevelConfig,Domain"  />
+    </set>
+	</class>
+</hibernate-mapping>

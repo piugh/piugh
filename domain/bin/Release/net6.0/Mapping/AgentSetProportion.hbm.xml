@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" assembly="Domain"  namespace="Domain.Entities">
+	<class name="Domain.Entities.AgentSetProportion,Domain" table="Agent_Set_Proportion">
+		<!--主键，编号-->
+		<id name="Guid" type="Guid">
+			<column name="proportion_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+		</id>
+		<!--基本描述信息-->
+		<component name="BaseInfo" class="Domain.BaseInfo,Domain">
+			<property name="Name" type="string">
+				<column name="name" sql-type="nvarchar(30)"  length="30" />
+			</property>
+			<property name="CreateName" type="string">
+				<column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+			</property>
+			<property name="CreateTime" type="DateTime">
+				<column name="create_time" sql-type="datetime"/>
+			</property>
+			<property name="Aim" type="string">
+				<column name="aim" sql-type="nvarchar(100)"  length="100"/>
+			</property>
+			<property name="Remark" type="string">
+				<column name="remark" sql-type="text"/>
+			</property>
+		</component>
+		<!--一对多关系，生成的个体集-->
+		<set name="AgentSets" table="Agent_Set" generic="true" inverse="true" cascade="all">
+			<key column="proportion_guid"  foreign-key="FK_Agent_Set_Agent_Set_Proportion"></key>
+			<one-to-many class="Domain.Entities.AgentSet,Domain"  />
+		</set>
+		<!---->
+		<set name="OccupationConfigs" table="Occupation_Config" generic="true" inverse="true" cascade="all">
+			<key column="proportion_guid"  foreign-key="FK_Agent_Set_Proportion_Occupation_Config"></key>
+			<one-to-many class="Domain.Entities.OccupationConfig,Domain"  />
+		</set>
+		<!---->
+		<set name="EduLevelConfigs" table="EduLevel_Config" generic="true" inverse="true" cascade="all">
+			<key column="proportion_guid"  foreign-key="FK_Agent_Set_Proportion_EduLevel_Config"></key>
+			<one-to-many class="Domain.Entities.EduLevelConfig,Domain"  />
+		</set>
+		<!---->
+		<set name="AgeLevelConfigs" table="AgeLevel_Config" generic="true" inverse="true" cascade="all">
+			<key column="proportion_guid"  foreign-key="FK_Agent_Set_Proportion_AgeLevel_Config"></key>
+			<one-to-many class="Domain.Entities.AgeLevelConfig,Domain"  />
+		</set>
+		<set name="LocationConfigs" table="Location_Config" generic="true" inverse="true" cascade="all">
+			<key column="proportion_guid"  foreign-key="FK_Agent_Set_Proportion_Location_Config"></key>
+			<one-to-many class="Domain.Entities.LocationConfig,Domain"  />
+		</set>
+	</class>
+</hibernate-mapping>

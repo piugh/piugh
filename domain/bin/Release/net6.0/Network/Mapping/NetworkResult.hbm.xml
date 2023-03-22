@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Network.Entities">
+  <class name="Domain.Network.Entities.NetworkResult,Domain" table="Network_Result">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="network_Result_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+    <component name="BaseInfo" class="Domain.BaseInfo,Domain">
+      <property name="Name" type="string">
+        <column name="name" sql-type="nvarchar(30)"  length="30" />
+      </property>
+      <property name="CreateName" type="string">
+        <column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+      </property>
+      <property name="CreateTime" type="DateTime">
+        <column name="create_time" sql-type="datetime"/>
+      </property>
+      <property name="Aim" type="string">
+        <column name="aim" sql-type="nvarchar(100)"  length="100"/>
+      </property>
+      <property name="Remark" type="string">
+        <column name="remark" sql-type="text"/>
+      </property>
+    </component>
+    <!---->
+    <set name="NetNodes" table="Net_Node" generic="true" inverse="true" cascade="all">
+      <key column="network_result_guid"  foreign-key="FK_Result_Node"></key>
+      <one-to-many class="Domain.Network.Entities.NetNode,Domain"  />
+    </set>
+    <set name="NetEdges" table="Net_Edge" generic="true" inverse="true" cascade="all">
+      <key column="network_result_guid"  foreign-key="FK_Result_Edge"></key>
+      <one-to-many class="Domain.Network.Entities.NetEdge,Domain"  />
+    </set>
+    <set name="AgentLearningSches" table="Agent_Learning_Sch" generic="true" inverse="true" cascade="all">
+      <key column="network_result_guid"  foreign-key="FK_Result_Learning"></key>
+      <one-to-many class="Domain.Entities.AgentLearningSch,Domain"  />
+    </set>
+    <many-to-one name="NetworkSch" column="network_sch_guid"
+  class="Domain.Network.Entities.NetworkSch,Domain"
+  foreign-key="FK_Sch_Result_Network" />
+    <set name="Experiments" table="Experiment" generic="true" inverse="true" cascade="all">
+      <key column="network_result_guid"  foreign-key="FK_Experiment_Result_Network"></key>
+      <one-to-many class="Domain.Entities.Experiment,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.ElectroConfig,Domain" table="Electro_Config">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="electro_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <property name="IsAdd" type="bool">
+      <column name="is_add" sql-type="bit"/>
+    </property>
+    <many-to-one name="Value" column="omen_value_guid"
+    class="Domain.Information.Entities.OmenValue,Domain"
+   foreign-key="FK_Electro_Omen_Value" />
+    <many-to-one name="ElectroAnomaly" column="electro_anomaly_guid"
+			  class="Domain.Information.Entities.ElectroAnomaly,Domain"
+			 foreign-key="FK_Config_Electro" />
+    <many-to-one name="Omen" column="omen_guid"
+			class="Domain.Information.Entities.Omen,Domain"
+			foreign-key="FK_Omen_Electro_Config" />
+  </class>
+</hibernate-mapping>

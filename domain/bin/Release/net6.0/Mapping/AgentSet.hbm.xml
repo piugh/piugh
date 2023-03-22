@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" 
+					assembly="Domain"  namespace="Domain.Entities">
+	<class name="Domain.Entities.AgentSet,Domain" table="Agent_Set">
+		<!--主键，编号-->
+		<id name="Guid" type="Guid" >
+			<column name="set_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+		</id>
+		<!--基本描述信息-->
+		<component name="BaseInfo" class="Domain.BaseInfo,Domain">
+			<property name="Name" type="string">
+				<column name="name" sql-type="nvarchar(30)"  length="30"/>
+			</property>
+			<property name="CreateName" type="string">
+				<column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+			</property>
+			<property name="CreateTime" type="DateTime">
+				<column name="create_time" sql-type="datetime"/>
+			</property>
+			<property name="Aim" type="string">
+				<column name="aim" sql-type="nvarchar(100)"  length="100"/>
+			</property>
+			<property name="Remark" type="string">
+				<column name="remark" sql-type="text"/>
+			</property>
+		</component>
+		<!--映射关系，多对一，基于的人口比例-->
+		<many-to-one name="Proportion" column="proportion_guid"  
+					 not-null="true" class="Domain.Entities.AgentSetProportion,Domain" 
+					 foreign-key="FK_Agent_set_Agent_Set_Proportion" />
+		<!--映射关系，一对多，个体集中所有的个体-->
+		<set name="Agents" table="Agent" generic="true" inverse="true" cascade="all">
+			<key column="set_guid"  foreign-key="FK_Agent_Agent_Set"></key>
+			<one-to-many class="Domain.Entities.Agent,Domain"  />
+		</set>
+    <set name="NetworkSches" table="Network_Sch" generic="true" inverse="true" cascade="all">
+      <key column="set_guid"  foreign-key="FK_Network_Sch_Agent_Set"></key>
+      <one-to-many class="Domain.Network.Entities.NetworkSch,Domain"  />
+    </set>
+    <set name="Experiments" table="Experiment" generic="true" inverse="true" cascade="all">
+      <key column="set_guid"  foreign-key="FK_Experiment_AgentSet"></key>
+      <one-to-many class="Domain.Entities.Experiment,Domain"  />
+    </set>
+	</class>
+</hibernate-mapping>

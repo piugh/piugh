@@ -1,0 +1,270 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Information\Mapping\Action.hbm.xml" />
+    <None Remove="Information\Mapping\AnimalAnomaly.hbm.xml" />
+    <None Remove="Information\Mapping\AnimalConfig.hbm.xml" />
+    <None Remove="Information\Mapping\Aspiration.hbm.xml" />
+    <None Remove="Information\Mapping\BuildingLoss.hbm.xml" />
+    <None Remove="Information\Mapping\Casualty.hbm.xml" />
+    <None Remove="Information\Mapping\ClimateAnomaly.hbm.xml" />
+    <None Remove="Information\Mapping\ClimateConfig.hbm.xml" />
+    <None Remove="Information\Mapping\Crisis.hbm.xml" />
+    <None Remove="Information\Mapping\CrisisFrequence.hbm.xml" />
+    <None Remove="Information\Mapping\CrisisLevel.hbm.xml" />
+    <None Remove="Information\Mapping\CrisisPersistentTime.hbm.xml" />
+    <None Remove="Information\Mapping\CrisisTimeSpan.hbm.xml" />
+    <None Remove="Information\Mapping\CrisisType.hbm.xml" />
+    <None Remove="Information\Mapping\EconomyLoss.hbm.xml" />
+    <None Remove="Information\Mapping\ElectroAnomaly.hbm.xml" />
+    <None Remove="Information\Mapping\ElectroConfig.hbm.xml" />
+    <None Remove="Information\Mapping\Environment.hbm.xml" />
+    <None Remove="Information\Mapping\GroundAnomaly.hbm.xml" />
+    <None Remove="Information\Mapping\GroundConfig.hbm.xml" />
+    <None Remove="Information\Mapping\GroundwaterAnomaly.hbm.xml" />
+    <None Remove="Information\Mapping\GroundwaterConfig.hbm.xml" />
+    <None Remove="Information\Mapping\ImpactOfDaily.hbm.xml" />
+    <None Remove="Information\Mapping\InfluenceScope.hbm.xml" />
+    <None Remove="Information\Mapping\MinorCasualty.hbm.xml" />
+    <None Remove="Information\Mapping\Omen.hbm.xml" />
+    <None Remove="Information\Mapping\OmenValue.hbm.xml" />
+    <None Remove="Information\Mapping\PersistentTime.hbm.xml" />
+    <None Remove="Information\Mapping\Proposition.hbm.xml" />
+    <None Remove="Information\Mapping\PropositionQueue.hbm.xml" />
+    <None Remove="Information\Mapping\PropositionQueueConfig.hbm.xml" />
+    <None Remove="Information\Mapping\Result.hbm.xml" />
+    <None Remove="Information\Mapping\Rumor.hbm.xml" />
+    <None Remove="Information\Mapping\RumorQueue.hbm.xml" />
+    <None Remove="Information\Mapping\RumorQueueConfig.hbm.xml" />
+    <None Remove="Mapping\AgeLevel.hbm.xml" />
+    <None Remove="Mapping\AgeLevelConfig.hbm.xml" />
+    <None Remove="Mapping\Agent.hbm.xml" />
+    <None Remove="Mapping\AgentLearningSch.hbm.xml" />
+    <None Remove="Mapping\AgentSet.hbm.xml" />
+    <None Remove="Mapping\AgentSetProportion.hbm.xml" />
+    <None Remove="Mapping\EduLevel.hbm.xml" />
+    <None Remove="Mapping\EduLevelConfig.hbm.xml" />
+    <None Remove="Mapping\Experiment.hbm.xml" />
+    <None Remove="Mapping\ExperimentResult.hbm.xml" />
+    <None Remove="Mapping\Location.hbm.xml" />
+    <None Remove="Mapping\LocationConfig.hbm.xml" />
+    <None Remove="Mapping\Occupation.hbm.xml" />
+    <None Remove="Mapping\OccupationConfig.hbm.xml" />
+    <None Remove="Mapping\PropositionLearningConfig.hbm.xml" />
+    <None Remove="Mapping\RumorLearningConfig.hbm.xml" />
+    <None Remove="Mapping\SpreadInfo.hbm.xml" />
+    <None Remove="Network\Mapping\ModelPara.hbm.xml" />
+    <None Remove="Network\Mapping\ModelParaConfig.hbm.xml" />
+    <None Remove="Network\Mapping\NetEdge.hbm.xml" />
+    <None Remove="Network\Mapping\NetNode.hbm.xml" />
+    <None Remove="Network\Mapping\NetworkModel.hbm.xml" />
+    <None Remove="Network\Mapping\NetworkResult.hbm.xml" />
+    <None Remove="Network\Mapping\NetworkSch.hbm.xml" />
+    <None Remove="Network\Mapping\OptionalPara.hbm.xml" />
+    <None Remove="Network\Mapping\OptionParaConfig.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Information\Mapping\BuildingLoss.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Casualty.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\EconomyLoss.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\ImpactOfDaily.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\InfluenceScope.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\MinorCasualty.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\PersistentTime.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Information\Mapping\CrisisFrequence.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\CrisisLevel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\CrisisPersistentTime.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\CrisisTimeSpan.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\CrisisType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\OmenValue.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\PropositionQueueConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\RumorQueueConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\AgentLearningSch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Experiment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\ExperimentResult.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Location.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\LocationConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\PropositionLearningConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\RumorLearningConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\SpreadInfo.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\ModelParaConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\NetworkModel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Information\Mapping\Action.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\AnimalAnomaly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\AnimalConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Aspiration.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\ClimateAnomaly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\ClimateConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Crisis.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\ElectroAnomaly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\ElectroConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Environment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\GroundAnomaly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\GroundConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\GroundwaterAnomaly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\GroundwaterConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Omen.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Proposition.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\PropositionQueue.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Result.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\Rumor.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Mapping\RumorQueue.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\AgeLevel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\AgeLevelConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Agent.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\AgentSet.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\AgentSetProportion.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\EduLevel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\EduLevelConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\Occupation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mapping\OccupationConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\ModelPara.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\NetEdge.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\NetNode.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\NetworkResult.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\NetworkSch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\OptionalPara.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\Mapping\OptionParaConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.3.11" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+</Project>

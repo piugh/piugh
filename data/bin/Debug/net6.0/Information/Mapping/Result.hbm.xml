@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.Result,Domain" table="Result">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="result_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <many-to-one name="Casualty" column="casualty_guid"
+			  class="Domain.Information.Entities.Casualty,Domain"
+			 foreign-key="FK_Result_Casualty" />
+    <many-to-one name="MinorCasualty" column="minor_casualty_guid"
+			  class="Domain.Information.Entities.MinorCasualty,Domain"
+			 foreign-key="FK_Result_MinorCasualty" />
+    <many-to-one name="PersistentTime" column="persistent_time_guid"
+			  class="Domain.Information.Entities.PersistentTime,Domain"
+			 foreign-key="FK_Result_PersistentTime" />
+    <many-to-one name="BuildingLoss" column="building_loss_guid"
+			  class="Domain.Information.Entities.BuildingLoss,Domain"
+			 foreign-key="FK_Result_BuildingLoss" />
+    <many-to-one name="EconomyLoss" column="economy_loss_guid"
+			  class="Domain.Information.Entities.EconomyLoss,Domain"
+			 foreign-key="FK_Result_EconomyLoss" />
+    <many-to-one name="ImpactOfDaily" column="impact_of_daily_guid"
+			  class="Domain.Information.Entities.ImpactOfDaily,Domain"
+			 foreign-key="FK_Result_ImpactOfDaily" />
+    <many-to-one name="InfluenceScope" column="influence_scope_guid"
+			  class="Domain.Information.Entities.InfluenceScope,Domain"
+			 foreign-key="FK_Result_InfluenceScope" />
+    <many-to-one name="Rumor" column="rumor_guid"
+			  class="Domain.Information.Entities.Rumor,Domain"
+			 foreign-key="FK_Result_Rumor" />
+  </class>
+</hibernate-mapping>

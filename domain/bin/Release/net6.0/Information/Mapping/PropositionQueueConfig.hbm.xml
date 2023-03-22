@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.PropositionQueueConfig,Domain" table="Proposition_Queue_Config">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid" >
+      <column name="proposition_queue_config_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <property name="Ordinal" type="int">
+      <column name="ordnial" sql-type="int" not-null="true"/>
+    </property>
+    <many-to-one name="Proposition" column="proposition_guid"
+			  class="Domain.Information.Entities.Proposition,Domain"
+			 foreign-key="FK_Config_Proposition" />
+    <many-to-one name="PropositionQueue" column="proposition_queue_guid"
+			class="Domain.Information.Entities.PropositionQueue,Domain"
+			foreign-key="FK_Config_Proposition_Queue" />
+  </class>
+</hibernate-mapping>

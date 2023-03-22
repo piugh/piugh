@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+					assembly="Domain"  namespace="Domain.Entities">
+	<class name="Domain.Entities.Agent,Domain" table="Agent">
+		<!--主键，编号-->
+		<id name="Guid" type="Guid" >
+			<column name="agent_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+		</id>
+		<!--个体信息，不需要映射-->
+		<property name="Gender" type="string">
+			<column  name="gender" sql-type="nvarchar(10)" length="10"/>
+		</property>
+		<property name="Age" type="int">
+			<column name="age" sql-type="int"/>
+		</property>
+		<property name="Longitude" type="int">
+			<column name="longitude" sql-type="int"/>
+		</property>
+		<property name="Latitude" type="int">
+			<column name="latitude" sql-type="int"/>
+		</property>
+		<!--映射关系，多对一，职业-->
+		<many-to-one name="Occupation" column="occupation_guid" 
+					  class="Domain.Entities.Occupation,Domain"
+					 foreign-key="FK_Agent_Occupation" />
+		<!--映射关系，多对一，受教育程度-->
+		<many-to-one name="EduLevel" column="edu_level_guid"
+					  class="Domain.Entities.EduLevel,Domain"
+					 foreign-key="FK_Agent_EduLevel" />
+		<many-to-one name="AgeLevel" column="age_level_guid"
+			  class="Domain.Entities.AgeLevel,Domain"
+			 foreign-key="FK_Agent_AgeLevel" />
+		<!--映射关系，多对一，所属个体集-->
+		<many-to-one name="AgentSet" column="set_guid"
+					  class="Domain.Entities.AgentSet,Domain" not-null="true"
+					 foreign-key="FK_Agent_Agent_Set" />
+	</class>
+</hibernate-mapping>

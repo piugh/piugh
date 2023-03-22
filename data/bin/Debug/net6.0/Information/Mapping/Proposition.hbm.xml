@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--assembly:程序集，namespace:命名空间-->
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2" assembly="Domain"  namespace="Domain.Information.Entities">
+  <class name="Domain.Information.Entities.Proposition,Domain" table="Proposition">
+    <!--主键，编号-->
+    <id name="Guid" type="Guid">
+      <column name="proposition_guid" sql-type="uniqueidentifier" unique="true" not-null="true"/>
+    </id>
+    <!--基本描述信息-->
+      <property name="Name" type="string">
+        <column name="name" sql-type="nvarchar(30)"  length="30" />
+      </property>
+      <property name="CreateName" type="string">
+        <column name="create_name" sql-type="nvarchar(30)"  length="30"/>
+      </property>
+      <property name="CreateTime" type="DateTime">
+        <column name="create_time" sql-type="datetime"/>
+      </property>
+      <property name="Aim" type="string">
+        <column name="aim" sql-type="nvarchar(100)"  length="100"/>
+      </property>
+      <property name="Remark" type="string">
+        <column name="remark" sql-type="text"/>
+      </property>
+    <property name="EumBinary" type="string">
+      <column name="eum_binary" sql-type="nvarchar(500)" />
+    </property>
+    <property name="Attitude" type="bool">
+        <column name="attitude" sql-type="bit"/>
+    </property>
+    <many-to-one name="Action" column="action_guid"
+      class="Domain.Information.Entities.Action,Domain"
+      foreign-key="FK_Proposition_Action" />
+    <many-to-one name="Rumor" column="rumor_guid"
+  class="Domain.Information.Entities.Rumor,Domain"
+  foreign-key="FK_Proposition_Rumor" />
+    <many-to-one name="Aspiration" column="aspiration_guid"
+      class="Domain.Information.Entities.Aspiration,Domain"
+      foreign-key="FK_Proposition_Aspiration" />
+    <many-to-one name="Environment" column="environment_guid"
+  class="Domain.Information.Entities.Environment,Domain"
+  foreign-key="FK_Proposition_Environment" />
+    <set name="PropositionQueueConfigs" table="Proposition_Queue_Config" generic="true" inverse="true" cascade="all">
+      <key column="proposition_guid"  foreign-key="FK_Config_Proposition"></key>
+      <one-to-many class="Domain.Information.Entities.PropositionQueueConfig,Domain"  />
+    </set>
+  </class>
+</hibernate-mapping>
