@@ -24,7 +24,7 @@ namespace Rumor.ViewModels
             region.RemoveAll();
             //导航传参
             NavigationParameters parameter = new NavigationParameters { { "TypeOfList", i } };
-            _regionManager.RequestNavigate("ListOfItem", "ViewA", parameter);
+            _regionManager.RequestNavigate("ListOfItem", "ListOfItem", parameter);
         }
         #endregion
 

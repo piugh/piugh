@@ -98,7 +98,7 @@ namespace agent.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/agent;component/views/newproportion.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/agent;V1.0.0.0;component/views/newproportion.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\NewProportion.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

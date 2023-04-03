@@ -35,27 +35,6 @@
           }
         }
       },
-      "LiveCharts.Wpf.NetCore3/0.9.7": {
-        "type": "package",
-        "dependencies": {
-          "System.Data.DataSetExtensions": "4.5.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/LiveCharts.Wpf.dll": {},
-          "lib/netcoreapp3.1/LiveCharts.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/LiveCharts.Wpf.dll": {},
-          "lib/netcoreapp3.1/LiveCharts.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
       "MaterialDesignColors/2.1.1": {
         "type": "package",
         "compile": {
@@ -640,15 +619,6 @@
           "ref/netstandard1.3/System.Console.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "System.Data.DataSetExtensions/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Data.DataSetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Data.DataSetExtensions.dll": {}
         }
       },
       "System.Data.SqlClient/4.8.5": {
@@ -1819,25 +1789,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "agent/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Data": "1.0.0",
-          "Domain": "1.0.0",
-          "LiveCharts.Wpf.NetCore3": "0.9.7",
-          "Prism.Wpf": "8.1.97"
-        },
-        "compile": {
-          "bin/placeholder/agent.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/agent.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
       "Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1867,57 +1818,6 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
-      },
-      "Experiment/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Experiment.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Experiment.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "Knowledge/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Knowledge.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Knowledge.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "Network/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Network.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Network.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
       }
     }
   },
@@ -1958,23 +1858,6 @@
         "lib/netstandard1.0/Iesi.Collections.xml",
         "lib/netstandard1.3/Iesi.Collections.dll",
         "lib/netstandard1.3/Iesi.Collections.xml"
-      ]
-    },
-    "LiveCharts.Wpf.NetCore3/0.9.7": {
-      "sha512": "d0HkmjLi+HifeXyD+E14aOMPDRmwkkiqPYW4GDbUS8Z1m6eQPGCShcDcbWwP4tBoWzGEkkSsy+XSHvaoW50b0Q==",
-      "type": "package",
-      "path": "livecharts.wpf.netcore3/0.9.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/LiveCharts.Wpf.dll",
-        "lib/net40/LiveCharts.dll",
-        "lib/net40/LiveCharts.xml",
-        "lib/netcoreapp3.1/LiveCharts.Wpf.dll",
-        "lib/netcoreapp3.1/LiveCharts.dll",
-        "lib/netcoreapp3.1/LiveCharts.xml",
-        "livecharts.wpf.netcore3.0.9.7.nupkg.sha512",
-        "livecharts.wpf.netcore3.nuspec"
       ]
     },
     "MaterialDesignColors/2.1.1": {
@@ -2907,25 +2790,6 @@
         "ref/xamarinwatchos10/_._",
         "system.console.4.3.0.nupkg.sha512",
         "system.console.nuspec"
-      ]
-    },
-    "System.Data.DataSetExtensions/4.5.0": {
-      "sha512": "221clPs1445HkTBZPL+K9sDBdJRB8UN8rgjO3ztB0CQ26z//fmJXtlsr6whGatscsKGBrhJl5bwJuKSA8mwFOw==",
-      "type": "package",
-      "path": "system.data.datasetextensions/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net45/_._",
-        "lib/netstandard2.0/System.Data.DataSetExtensions.dll",
-        "ref/net45/_._",
-        "ref/netstandard2.0/System.Data.DataSetExtensions.dll",
-        "system.data.datasetextensions.4.5.0.nupkg.sha512",
-        "system.data.datasetextensions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.Data.SqlClient/4.8.5": {
@@ -6104,11 +5968,6 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "agent/1.0.0": {
-      "type": "project",
-      "path": "../agent/agent.csproj",
-      "msbuildProject": "../agent/agent.csproj"
-    },
     "Data/1.0.0": {
       "type": "project",
       "path": "../data/Data.csproj",
@@ -6118,35 +5977,16 @@
       "type": "project",
       "path": "../domain/Domain.csproj",
       "msbuildProject": "../domain/Domain.csproj"
-    },
-    "Experiment/1.0.0": {
-      "type": "project",
-      "path": "../Experiment/Experiment.csproj",
-      "msbuildProject": "../Experiment/Experiment.csproj"
-    },
-    "Knowledge/1.0.0": {
-      "type": "project",
-      "path": "../Knowledge/Knowledge.csproj",
-      "msbuildProject": "../Knowledge/Knowledge.csproj"
-    },
-    "Network/1.0.0": {
-      "type": "project",
-      "path": "../Network/Network.csproj",
-      "msbuildProject": "../Network/Network.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "Data >= 1.0.0",
       "Domain >= 1.0.0",
-      "Experiment >= 1.0.0",
-      "Knowledge >= 1.0.0",
       "MaterialDesignThemes >= 4.7.1",
       "NHibernate >= 5.3.11",
-      "Network >= 1.0.0",
       "Prism.Wpf >= 8.1.97",
-      "System.Data.SqlClient >= 4.8.5",
-      "agent >= 1.0.0"
+      "System.Data.SqlClient >= 4.8.5"
     ]
   },
   "packageFolders": {
@@ -6176,23 +6016,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\18747\\source\\repos\\Rumor\\agent\\agent.csproj": {
-              "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\agent\\agent.csproj"
-            },
             "C:\\Users\\18747\\source\\repos\\Rumor\\data\\Data.csproj": {
               "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\data\\Data.csproj"
             },
             "C:\\Users\\18747\\source\\repos\\Rumor\\domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\domain\\Domain.csproj"
-            },
-            "C:\\Users\\18747\\source\\repos\\Rumor\\Experiment\\Experiment.csproj": {
-              "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\Experiment\\Experiment.csproj"
-            },
-            "C:\\Users\\18747\\source\\repos\\Rumor\\Knowledge\\Knowledge.csproj": {
-              "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\Knowledge\\Knowledge.csproj"
-            },
-            "C:\\Users\\18747\\source\\repos\\Rumor\\Network\\Network.csproj": {
-              "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\Network\\Network.csproj"
             }
           }
         }

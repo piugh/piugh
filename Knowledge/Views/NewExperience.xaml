@@ -1,0 +1,83 @@
+﻿<Window x:Class="Knowledge.Views.NewExperience"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"   
+             Name="NewItem"
+             Title="新建经验方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="LightBlue">
+        <Label Content="输入信息有误！" Height="30" Margin="320 0 0 20" FontSize="14" Foreground="Red" VerticalAlignment="Bottom"
+                               Visibility="{Binding Warning}"/>
+
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding Path = NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="详细配置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="环境" Margin="50 50 0 0" Width="100" HorizontalContentAlignment="Center" FontSize="14"/>
+                                <ComboBox Margin="50 50 0 0" Width="300" ItemsSource="{Binding Environments}" DisplayMemberPath="Name"
+                                          SelectedItem="{Binding NewItem.Environment}" SelectedIndex="0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="谣言" Margin="50 50 0 0" Width="100" HorizontalContentAlignment="Center" FontSize="14"/>
+                                <ComboBox Margin="50 50 0 0" Width="300" ItemsSource="{Binding Rumors}" DisplayMemberPath="Name"
+                                          SelectedItem="{Binding NewItem.Rumor}" SelectedIndex="0"/>
+                                <Label Content="是否认同：" Margin="50 50 0 0" Width="100" HorizontalContentAlignment="Center" FontSize="14"/>
+                                <CheckBox IsChecked="{Binding NewItem.Attitude}" Width="20" Margin="0 50 0 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="愿望" Margin="50 50 0 0" Width="100" HorizontalContentAlignment="Center" FontSize="14"/>
+                                <ComboBox Margin="50 50 0 0" Width="300" ItemsSource="{Binding Aspirations}" DisplayMemberPath="Name"
+                                          SelectedItem="{Binding NewItem.Aspiration}" SelectedIndex="0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="行动" Margin="50 50 0 0" Width="100" HorizontalContentAlignment="Center" FontSize="14"/>
+                                <ComboBox Margin="50 50 0 0" Width="300" ItemsSource="{Binding Actions}" DisplayMemberPath="Name"
+                                           SelectedItem="{Binding NewItem.Action}" SelectedIndex="0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <Canvas Grid.Row="1">
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

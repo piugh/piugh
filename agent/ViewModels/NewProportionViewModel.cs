@@ -1,5 +1,4 @@
-﻿using agent.Data;
-using agent.Views;
+﻿using agent.Views;
 using Domain;
 using Domain.Entities;
 using Prism.Commands;
@@ -220,6 +219,7 @@ namespace agent.ViewModels
                     }
                 }
             }
+            NHibernateHelper.CloseSession();
             newwindow.Close();
         }
 

@@ -15,8 +15,6 @@ C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Network.dll
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\refint\Network.dll
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Network.pdb
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\ref\Network.dll
-C:\Users\18747\source\repos\Rumor\Network\bin\Debug\net6.0-windows\agent.dll
-C:\Users\18747\source\repos\Rumor\Network\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetConfig.baml
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetResult.baml
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetConfig.g.cs
@@ -277,3 +275,9 @@ C:\Users\18747\source\repos\Rumor1\Network\obj\Debug\net6.0-windows\Network.dll
 C:\Users\18747\source\repos\Rumor1\Network\obj\Debug\net6.0-windows\refint\Network.dll
 C:\Users\18747\source\repos\Rumor1\Network\obj\Debug\net6.0-windows\Network.pdb
 C:\Users\18747\source\repos\Rumor1\Network\obj\Debug\net6.0-windows\ref\Network.dll
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetConfig.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetParameter.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetStructure.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetConfig.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetParameter.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetStructure.g.cs

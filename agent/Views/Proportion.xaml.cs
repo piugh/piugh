@@ -1,5 +1,4 @@
-﻿using agent.Data;
-using agent.ViewModels;
+﻿using agent.ViewModels;
 using Prism.Common;
 using Prism.Regions;
 using System;

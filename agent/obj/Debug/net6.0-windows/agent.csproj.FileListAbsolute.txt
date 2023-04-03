@@ -275,3 +275,7 @@ C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\agent.dll
 C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\refint\agent.dll
 C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\ref\agent.dll
+C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\Views\NewLearnAgent.baml
+C:\Users\18747\source\repos\Rumor\agent\obj\Debug\net6.0-windows\Views\NewLearnAgent.g.cs
+C:\Users\18747\source\repos\Rumor\agent\bin\Debug\net6.0-windows\Resource.dll
+C:\Users\18747\source\repos\Rumor\agent\bin\Debug\net6.0-windows\Resource.pdb

@@ -20,8 +20,6 @@ C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult.g.cs
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult.baml
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.csproj.CopyComplete
-C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentManage.g.cs
-C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentManage.baml
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Information\Mapping\BuildingLoss.hbm.xml
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Information\Mapping\Casualty.hbm.xml
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Information\Mapping\EconomyLoss.hbm.xml
@@ -271,3 +269,5 @@ C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\Experimen
 C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\refint\Experiment.dll
 C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\Experiment.pdb
 C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\ref\Experiment.dll
+C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Resource.dll
+C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Resource.pdb

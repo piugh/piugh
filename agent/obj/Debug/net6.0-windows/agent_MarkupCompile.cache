@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-5-179349060
+61010358004
 
-12-882368368
-208-1824903625
-Views\InitialAgent.xaml;Views\LearnAgent.xaml;Views\NewInitialAgent.xaml;Views\NewProportion.xaml;Views\Proportion.xaml;
+132041857144
+212397820680
+Views\InitialAgent.xaml;Views\LearnAgent.xaml;Views\NewInitialAgent.xaml;Views\NewLearnAgent.xaml;Views\NewProportion.xaml;Views\Proportion.xaml;
 
 False
 

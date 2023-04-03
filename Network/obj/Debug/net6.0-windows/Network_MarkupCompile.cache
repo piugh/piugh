@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-51480023258
+8358255876
 
-111792771776
-2091314305112
-Views\NetConfig.xaml;Views\NetParameter.xaml;Views\NetResult.xaml;Views\NetStructure.xaml;Views\ViewA.xaml;
+17-988981423
+206-959767802
+Views\NetConfig.xaml;Views\NetParameter.xaml;Views\NetResult.xaml;Views\NetStructure.xaml;Views\NewNetConfig.xaml;Views\NewNetParameter.xaml;Views\NewNetStructure.xaml;Views\ViewA.xaml;
 
 False
 

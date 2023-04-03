@@ -21,21 +21,42 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="方案名称:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.BaseInfo.Name}" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.Name}" Grid.ColumnSpan="2" />
 
                     <TextBlock Grid.Row="1" Text="创建者:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.BaseInfo.CreateName}" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateName}" Grid.ColumnSpan="2" />
 
                     <TextBlock Grid.Row="2" Text="创建时间:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.BaseInfo.CreateTime}" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateTime}" Grid.ColumnSpan="2"/>
 
                     <TextBlock Grid.Row="3" Text="备注信息:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.BaseInfo.Remark}" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Remark}" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="详细信息">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="环境:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.Environment.Name}" Grid.ColumnSpan="2" />
 
+                    <TextBlock Grid.Row="1" Text="谣言:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Rumor.Name}" Grid.ColumnSpan="2" />
 
+                    <TextBlock Grid.Row="2" Text="是否认同:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Attitude}" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Grid.Row="3" Text="愿望:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Aspiration.Name}" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Grid.Row="4" Text="行动:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="4" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Action.Name}" Grid.ColumnSpan="2"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

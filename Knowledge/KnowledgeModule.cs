@@ -1,5 +1,4 @@
-﻿using agent.Views;
-using Knowledge.Views;
+﻿using Knowledge.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

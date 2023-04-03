@@ -62,7 +62,7 @@ namespace Rumor.Views
                     view = new Rumor_Knowlege();
                     break;
                 case "计算实验管理":
-                    //view = new Experiment.Views.ViewA();
+                    view = new Rumor_Experiment();
                     break;
                 default:
                     return;

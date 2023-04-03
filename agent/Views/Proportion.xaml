@@ -7,7 +7,6 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="520" d:DesignWidth="574"
              xmlns:prism="http://prismlibrary.com/" 
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
@@ -15,25 +14,9 @@
         <!--详细信息模块-->
         <TabControl Margin="20">
             <TabItem Header="基本信息">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="方案名称:" Margin="20" FontSize="18" />
-                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="120 20 20 20" FontSize="18"  Text="{Binding SelectedItem.Name}" />
-
-                    <TextBlock Grid.Row="1" Text="创建者:" Margin="20" FontSize="18" />
-                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.CreateName}" />
-
-                    <TextBlock Grid.Row="2" Text="创建时间:" Margin="20" FontSize="18" />
-                    <TextBlock Grid.Row="2" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.CreateTime}"/>
-
-                    <TextBlock Grid.Row="3" Text="备注信息:" Margin="20" FontSize="18" />
-                    <TextBlock Grid.Row="3" Grid.Column="1" FontSize="18"   Margin="120 20 20 20" Text="{Binding SelectedItem.Remark}"/>
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="ProportionBaseInfoRegion" Name="BaseInfo"
+                                prism:RegionManager.RegionContext="{Binding SelectedItem}"/>
+                
             </TabItem>
             
             <TabItem Header="饼状图">
@@ -46,7 +29,49 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                   
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="整体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Border Grid.Row="0" Grid.Column="0" Margin="0 20 0 0">
+                        <lvc:PieChart LegendLocation="Bottom" Series="{Binding OccupationSeries}" Hoverable="True">
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip BulletSize="10"/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1" Margin="0 20 0 0">
+                        <lvc:PieChart LegendLocation="Bottom"  Series="{Binding LocationSeries}"  Hoverable="False" >
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip BulletSize="10"/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                    </Border>
+
+                    <Label Grid.Row="1" Content="具体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Grid Grid.Row="1" Grid.Column="0" Margin="0 20 10 0">
+                        <ComboBox ItemsSource="{Binding SelectedItem.OccupationConfigs}" DisplayMemberPath="Occupation.Name" 
+                                  SelectedItem="{Binding SelectedOccupationConfig}" SelectedIndex="0" VerticalAlignment="Top"/>
+                        <Border Margin="0 25 0 0">
+                            <lvc:PieChart LegendLocation="Bottom"  Series="{Binding EduLevelSeries}"  Hoverable="False" >
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="10"/>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="0 20 10 0">
+                        <ComboBox ItemsSource="{Binding  SelectedOccupationConfig.EduLevelConfigs}" DisplayMemberPath="EduLevel.Name" 
+                                  SelectedItem="{Binding SelectedEduLevelConfig}" SelectedIndex="0" VerticalAlignment="Top"/>
+                        <Border Margin="0 25 0 0">
+                            <lvc:PieChart LegendLocation="Bottom"  Series="{Binding AgeLevelSeries}"  Hoverable="False" >
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="10"/>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </Border>
+                    </Grid>
+
+
                     <!--<lvc:PieChart Grid.Row="0" Grid.Column="0" DataClick="pipChart_DataClick" Hoverable="False">
                         <lvc:PieChart.Series>
                             <lvc:PieSeries Title="Maria" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="3"/>
@@ -61,14 +86,6 @@
                             <lvc:DefaultTooltip BulletSize="10"/>
                         </lvc:PieChart.DataTooltip>
                     </lvc:PieChart>-->
-                    <Label Grid.Row="0" Content="整体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-                    <Label Grid.Row="1" Content="具体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-
-
-
-
                 </Grid>
 
 

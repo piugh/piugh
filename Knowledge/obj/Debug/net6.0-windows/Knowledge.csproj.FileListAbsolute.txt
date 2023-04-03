@@ -248,10 +248,8 @@ C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Network\Map
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Knowledge.deps.json
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Knowledge.dll
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Knowledge.pdb
-C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\agent.dll
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Data.dll
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Domain.dll
-C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Data.pdb
 C:\Users\18747\source\repos\Rumor\Knowledge\bin\Debug\net6.0-windows\Domain.pdb
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge.csproj.AssemblyReference.cache
@@ -279,3 +277,9 @@ C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge.p
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\ref\Knowledge.dll
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessage.baml
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessage.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewExperience.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewExperienceQueu.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewExperience.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewExperienceQueu.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessageQueu.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessageQueu.baml

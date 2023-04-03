@@ -1,5 +1,4 @@
-﻿using agent.Data;
-using Domain.Information.Entities;
+﻿using Domain.Information.Entities;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
@@ -22,7 +21,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _selectedItem, value);
-                OnPerpertyChanged(nameof(SelectedItem));
             }
         }
         #endregion
@@ -56,17 +54,6 @@ namespace Knowledge.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-        }
-        #endregion
-
-        #region 属性改变
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPerpertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
         #endregion
     }

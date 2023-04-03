@@ -1,0 +1,86 @@
+﻿<Window x:Class="Network.Views.NewNetConfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:prism="http://prismlibrary.com/"             
+             Name="NewItem"
+             Title="新建网络模型方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="LightBlue">
+        <Label Content="输入信息有误！" Height="30" Margin="320 0 0 20" FontSize="14" Foreground="Red" VerticalAlignment="Bottom"
+                               Visibility="{Binding Warning}"/>
+
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding Path = NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="参数配置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Width="150" Content="网络结构方案选择：" FontSize="15" FontWeight="Bold"/>
+                            <ComboBox Width="300" Name="NetWorkModels" HorizontalContentAlignment="Center"
+                                      ItemsSource="{Binding NetWorkModels}" DisplayMemberPath="Name">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <prism:InvokeCommandAction Command="{Binding SelectedNetWorkModel}" CommandParameter="{Binding SelectedItem, ElementName=NetWorkModels}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Width="150" Content="网络参数方案选择：" FontSize="15" FontWeight="Bold"/>
+                            <ComboBox Width="300" Name="ModelParas" HorizontalContentAlignment="Center" DisplayMemberPath="Name"
+                                      ItemsSource="{Binding ModelParas}" SelectedItem="{Binding NewItem.ModelPara}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Width="150" Content="个体集方案选择：" FontSize="15" FontWeight="Bold"/>
+                            <ComboBox Width="300" Name="AgentSets" HorizontalContentAlignment="Center" DisplayMemberPath="Name"
+                                      ItemsSource="{Binding AgentSets}" SelectedItem="{Binding NewItem.AgentSet}"/>
+                        </StackPanel>
+                    </Grid>
+                    <Canvas Grid.Row="1">
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

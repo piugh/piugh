@@ -1,5 +1,4 @@
-﻿using agent.ViewModels;
-using Data;
+﻿using Data;
 using Domain;
 using Domain.Entities;
 using Domain.Information.Entities;
@@ -18,6 +17,19 @@ namespace Knowledge.ViewModels
 {
     public class NewMessageViewModel : BindableBase
     {
+        #region 数据接口
+        public DataBaseAccess<Rumor> RumorAccess;
+        public DataBaseAccess<Omen> OmenAccess;
+        public DataBaseAccess<Crisis> CrisisAccess;
+        public DataBaseAccess<Result> ResultAccess;
+
+        public DataBaseAccess<AnimalConfig> AnimalConfigAccess;
+        public DataBaseAccess<ElectroConfig> ElectroConfigAccess;
+        public DataBaseAccess<ClimateConfig> ClimateConfigAccess;
+        public DataBaseAccess<GroundConfig> GroundConfigAccess;
+        public DataBaseAccess<GroundwaterConfig> GroundwaterConfigAccess;
+        #endregion
+
         #region 新建谣言方案
         //定义谣言
         private Rumor _newItem;
@@ -184,7 +196,7 @@ namespace Knowledge.ViewModels
             }
 
             ClimateConfigs = new();
-            foreach(var i in climateAnomalies)
+            foreach (var i in climateAnomalies)
             {
                 ClimateConfigs.Add(new ClimateConfig()
                 {
@@ -208,7 +220,7 @@ namespace Knowledge.ViewModels
             }
 
             GroundConfigs = new();
-            foreach(var i in groundAnomalies)
+            foreach (var i in groundAnomalies)
             {
                 GroundConfigs.Add(new GroundConfig()
                 {
@@ -219,8 +231,8 @@ namespace Knowledge.ViewModels
                 });
             }
 
-            GroundwaterConfigs= new();
-            foreach(var i in groundwaterAnomalies)
+            GroundwaterConfigs = new();
+            foreach (var i in groundwaterAnomalies)
             {
                 GroundwaterConfigs.Add(new GroundwaterConfig()
                 {
@@ -243,15 +255,15 @@ namespace Knowledge.ViewModels
                     IsAdd = false,
                     Type = i,
                     Rumor = NewItem
-                    
+
                 };
-                Crisis.Add(crisis);                
+                Crisis.Add(crisis);
             }
             #endregion
 
             #region 后果信息初始化
             Result = new Result() { Guid = Guid.NewGuid(), Rumor = NewItem };
-            
+
             #endregion
 
         }
@@ -291,31 +303,271 @@ namespace Knowledge.ViewModels
         #endregion
 
         #region 第四步：完成新建
-        public DelegateCommand Finish { get; private set; }
-        public void FinishMethod()
+        public DelegateCommand<Window> Finish { get; private set; }
+        public void FinishMethod(Window newwindow)
         {
-            TabIndex = 3;
+            #region 征兆二进制
+            string Omenstring = "";
+            #region 生物异常
+            {
+                bool[] temp = new bool[AnimalConfigs.Count];
+                string[] temps = new string[AnimalConfigs.Count];
+                foreach (var i in AnimalConfigs)
+                {
+                    temp[i.AnimalAnomaly.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.AnimalAnomaly.Order] = i.Value.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.AnimalAnomaly.Order] = "00";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    Omenstring += Convert.ToInt64(i).ToString();
+                }
+                foreach (var i in temps)
+                {
+                    Omenstring += ",";
+                    Omenstring += i;
+                }
+            }
+            #endregion
+            Omenstring += ",";
+            #region 地下水异常
+            {
+                bool[] temp = new bool[GroundwaterConfigs.Count];
+                string[] temps = new string[GroundwaterConfigs.Count];
+                foreach (var i in GroundwaterConfigs)
+                {
+                    temp[i.GroundwaterAnomaly.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.GroundwaterAnomaly.Order] = i.Value.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.GroundwaterAnomaly.Order] = "00";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    Omenstring += Convert.ToInt64(i).ToString();
+                }
+
+                foreach (var i in temps)
+                {
+                    Omenstring += ",";
+                    Omenstring += i;
+                }
+            }
+            #endregion
+            Omenstring += ",";
+            #region 气候异常
+            {
+                bool[] temp = new bool[ClimateConfigs.Count];
+                string[] temps = new string[ClimateConfigs.Count];
+                foreach (var i in ClimateConfigs)
+                {
+                    temp[i.ClimateAnomaly.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.ClimateAnomaly.Order] = i.Value.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.ClimateAnomaly.Order] = "00";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    Omenstring += Convert.ToInt64(i).ToString();
+                }
+                foreach (var i in temps)
+                {
+                    Omenstring += ",";
+                    Omenstring += i;
+                }
+            }
+            #endregion
+            Omenstring += ",";
+            #region 地面异常
+            {
+                bool[] temp = new bool[GroundConfigs.Count];
+                string[] temps = new string[GroundConfigs.Count];
+                foreach (var i in GroundConfigs)
+                {
+                    temp[i.GroundAnomaly.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.GroundAnomaly.Order] = i.Value.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.GroundAnomaly.Order] = "00";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    Omenstring += Convert.ToInt64(i).ToString();
+                }
+                foreach (var i in temps)
+                {
+                    Omenstring += ",";
+                    Omenstring += i;
+                }
+            }
+            #endregion
+            Omenstring += ",";
+            #region 电磁异常
+            {
+                bool[] temp = new bool[ElectroConfigs.Count];
+                string[] temps = new string[ElectroConfigs.Count];
+                foreach (var i in ElectroConfigs)
+                {
+                    temp[i.ElectroAnomaly.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.ElectroAnomaly.Order] = i.Value.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.ElectroAnomaly.Order] = "00";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    Omenstring += Convert.ToInt64(i).ToString();
+                }
+                foreach (var i in temps)
+                {
+                    Omenstring += ",";
+                    Omenstring += i;
+                }
+            }
+            #endregion
+            NewItem.OmenEumBinary = Omenstring;
+            #endregion
+            #region 危机二进制
+            string CrisisString = "";
+            {
+                bool[] temp = new bool[Crisis.Count];
+                string[] temps = new string[Crisis.Count];
+                foreach (var i in Crisis)
+                {
+                    temp[i.Type.Order] = i.IsAdd;
+                    if (i.IsAdd)
+                    {
+                        temps[i.Type.Order] = i.TimeSpan.EumBinary;
+                        temps[i.Type.Order] += ",";
+                        temps[i.Type.Order] += i.Level.EumBinary;
+                        temps[i.Type.Order] += ",";
+                        temps[i.Type.Order] += i.Frequence.EumBinary;
+                        temps[i.Type.Order] += ",";
+                        temps[i.Type.Order] += i.PersistentTime.EumBinary;
+                    }
+                    else
+                    {
+                        temps[i.Type.Order] = "000,000,000,000";
+                    }
+                }
+                foreach (var i in temp)
+                {
+                    CrisisString += Convert.ToInt64(i).ToString();
+                }
+                foreach (var i in temps)
+                {
+                    CrisisString += ",";
+                    CrisisString += i;
+                }
+            }
+            NewItem.CrisisEumBinary = CrisisString;
+            #endregion
+            #region 后果二进制
+            string ResultString = "";
+            {
+                ResultString += Result.Casualty.EumBinary;
+                ResultString += ",";
+                ResultString += Result.MinorCasualty.EumBinary;
+                ResultString += ",";
+                ResultString += Result.BuildingLoss.EumBinary;
+                ResultString += ",";
+                ResultString += Result.EconomyLoss.EumBinary;
+                ResultString += ",";
+                ResultString += Result.ImpactOfDaily.EumBinary;
+                ResultString += ",";
+                ResultString += Result.PersistentTime.EumBinary;
+                ResultString += ",";
+                ResultString += Result.InfluenceScope.EumBinary;
+            }
+            NewItem.ResultEumBinary = ResultString;
+            #endregion
+
+            #region 谣言二进制
+            NewItem.RumorEumBinary = "";
+            NewItem.RumorEumBinary += NewItem.OmenEumBinary;
+            NewItem.RumorEumBinary += ",";
+            NewItem.RumorEumBinary += NewItem.CrisisEumBinary;
+            NewItem.RumorEumBinary += ",";
+            NewItem.RumorEumBinary += NewItem.ResultEumBinary;
+            #endregion
+
+            #region 数据写入数据库
+            RumorAccess = new();
+            OmenAccess = new();
+            ResultAccess = new();
+            CrisisAccess = new();
+
+            NewItem.CreateTime = DateTime.Now;
+            RumorAccess.Add(NewItem);
+            OmenAccess.Add(Omen);
+            ResultAccess.Add(Result);
+            foreach (var i in Crisis)
+            {
+               CrisisAccess.Add(i);
+            }
+            AnimalConfigAccess = new();
+            foreach (var i in AnimalConfigs)
+            {
+                AnimalConfigAccess.Add(i);
+            }
+            ElectroConfigAccess = new();
+            foreach (var i in ElectroConfigs)
+            {
+                ElectroConfigAccess.Add(i);
+            }
+            ClimateConfigAccess= new();
+            foreach (var i in ClimateConfigs)
+            {
+                ClimateConfigAccess.Add(i);
+            }
+            GroundConfigAccess= new();
+            foreach (var i in GroundConfigs)
+            {
+                GroundConfigAccess.Add(i);
+            }
+            GroundwaterConfigAccess= new();
+            foreach (var i in GroundwaterConfigs)
+            {
+                GroundwaterConfigAccess.Add(i);
+            }
+            #endregion
+
+            NHibernateHelper.CloseSession();
+            newwindow.Close();
         }
         #endregion
 
-
+        #region Main
         public NewMessageViewModel()
         {
             InitialNewItem();
             Next1 = new DelegateCommand(Next1Method);
             Next2 = new DelegateCommand(Next2Method);
             Next3 = new DelegateCommand(Next3Method);
-            Finish = new DelegateCommand(FinishMethod);
-        }
-
-        #region 属性改变
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPerpertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            Finish = new DelegateCommand<Window>(FinishMethod);
         }
         #endregion
     }

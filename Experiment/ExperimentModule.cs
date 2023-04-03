@@ -1,4 +1,5 @@
-﻿using Experiment.Views;
+﻿using agent.Views;
+using Experiment.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -14,7 +15,8 @@ namespace Experiment
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<ExperimentItem>();
+            containerRegistry.RegisterForNavigation<ExperimentResult>();
         }
     }
 }

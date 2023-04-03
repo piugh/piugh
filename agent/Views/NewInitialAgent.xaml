@@ -69,7 +69,6 @@
                         </ListBox>
                     </Canvas>
                     <Canvas Grid.Row="2">
-                        <TextBox Text="{Binding SelectedItem.Name}" Height="40" Width="120"/>
                         <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
                                 Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
                     </Canvas>

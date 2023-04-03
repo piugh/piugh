@@ -19,6 +19,7 @@ namespace Rumor
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<ListOfItem>();
         }
         //加载模块几种方法：
         //1. 配置app.config

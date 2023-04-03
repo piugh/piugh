@@ -1,9 +1,11 @@
 ﻿using agent.Views;
 using Data;
+using Domain;
 using Domain.Entities;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using Resource.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +25,25 @@ namespace agent.ViewModels
             set
             {
                 SetProperty(ref _selectedItem, value);
-                OnPerpertyChanged(nameof(SelectedItem));
+            }
+        }
+        #endregion
+
+        #region 显示信息
+        private readonly IRegionManager _regionManager;
+        private int _tabIndex;
+        public int TabIndex
+        {
+            get { return _tabIndex; }
+            set 
+            {
+                SetProperty(ref _tabIndex, value); 
+                if(value == 0)
+                {
+                    IRegion region = _regionManager.Regions["InitialAgentBaseInfoRegion"];
+                    region.RemoveAll();
+                    _regionManager.RegisterViewWithRegion("InitialAgentBaseInfoRegion", typeof(BaseInfoView));
+                }
             }
         }
         #endregion
@@ -39,12 +59,14 @@ namespace agent.ViewModels
                 agent.id = id;
                 id++;
             }
+            TabIndex = 0;
         }
         #endregion
       
         #region Main
-        public InitialAgentViewModel()
+        public InitialAgentViewModel(IRegionManager regionManager)
         {
+            _regionManager = regionManager;
         }
         #endregion
 
@@ -65,17 +87,6 @@ namespace agent.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-        }
-        #endregion
-
-        #region 属性改变
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPerpertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
         #endregion
     }

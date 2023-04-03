@@ -359,3 +359,8 @@ C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_Net
 C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_NetWork.g.cs
 C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_Knowlege.baml
 C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_Knowlege.g.cs
+C:\Users\18747\source\repos\Rumor\Rumor\bin\Debug\net6.0-windows\Ninject.dll
+C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_Experiment.baml
+C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\Rumor_Experiment.g.cs
+C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\ListOfItem.baml
+C:\Users\18747\source\repos\Rumor\Rumor\obj\Debug\net6.0-windows\Views\ListOfItem.g.cs

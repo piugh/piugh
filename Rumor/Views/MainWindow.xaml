@@ -65,6 +65,7 @@
             <ContentControl Grid.Column="0" prism:RegionManager.RegionName="MenuRegion" />
             <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ListOfItem" />
             <ContentControl Grid.Column="2" prism:RegionManager.RegionName="DetialOfItem" />
+            
         </Grid>
         
     </Grid>

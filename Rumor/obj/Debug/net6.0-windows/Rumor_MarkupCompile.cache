@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\18747\source\repos\Rumor\Rumor\App.xaml
-4-341502721
+6-81119142
 
-9487218284
-217-1684207312
-Views\MainWindow.xaml;Views\Rumor_Agent.xaml;Views\Rumor_Knowlege.xaml;Views\Rumor_NetWork.xaml;
+13-1890414225
+218857333935
+Views\ListOfItem.xaml;Views\MainWindow.xaml;Views\Rumor_Agent.xaml;Views\Rumor_Experiment.xaml;Views\Rumor_Knowlege.xaml;Views\Rumor_NetWork.xaml;
 
 False
 

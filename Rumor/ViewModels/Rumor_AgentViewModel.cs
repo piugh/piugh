@@ -25,7 +25,7 @@ namespace Rumor.ViewModels
             region.RemoveAll();
             //导航传参:0\1\2分别表示统计比例、初始个体集和经验个体集
             NavigationParameters parameter = new NavigationParameters{{ "TypeOfList", i }};
-            _regionManager.RequestNavigate("ListOfItem", "ViewA", parameter);            
+            _regionManager.RequestNavigate("ListOfItem", "ListOfItem", parameter);            
         }      
         #endregion
 

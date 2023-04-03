@@ -6,33 +6,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:agent.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="520" d:DesignWidth="574"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
         <!--详细信息模块-->
-        <TabControl Margin="20">
+        <TabControl Margin="20" SelectedIndex="{Binding TabIndex}">
             <TabItem Header="基本信息">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="方案名称:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.Name}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="1" Text="创建者:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateName}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="2" Text="创建时间:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateTime}" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Grid.Row="3" Text="备注信息:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Remark}" Grid.ColumnSpan="2"/>
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="InitialAgentBaseInfoRegion"
+                                prism:RegionManager.RegionContext="{Binding SelectedItem}"/>
             </TabItem>
             <TabItem Header="个体集表格">
                 <Grid >
@@ -49,9 +31,13 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-
-
             </TabItem>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <prism:InvokeCommandAction Command="{Binding SelectChangeCrisis}" CommandParameter="{Binding SelectedItem, ElementName=Criseslist}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
         </TabControl>
 
     </Grid>

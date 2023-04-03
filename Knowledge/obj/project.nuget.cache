@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vAkaxG0+CFo/id7UYk+F1oU9GouhOojzyJ60FpSnqaMnc8A7Fjp0dTQ4Jwjwe0nHFpDeVgZivJOs0VkB0dhcgw==",
+  "dgSpecHash": "5BMyE24y0NUfgeVTRBLHKLkqNUAF15fFu9W/ap/ep8tR+5QlJeJzWyTeuw6ETbWYK73Du5YWYbPBKCu42Zq9HA==",
   "success": true,
   "projectFilePath": "C:\\Users\\18747\\source\\repos\\Rumor\\Knowledge\\Knowledge.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\18747\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\iesi.collections\\4.0.4\\iesi.collections.4.0.4.nupkg.sha512",
-    "C:\\Users\\18747\\.nuget\\packages\\livecharts.wpf.netcore3\\0.9.7\\livecharts.wpf.netcore3.0.9.7.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -45,7 +44,6 @@
     "C:\\Users\\18747\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\system.console\\4.3.0\\system.console.4.3.0.nupkg.sha512",
-    "C:\\Users\\18747\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\18747\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",

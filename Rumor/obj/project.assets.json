@@ -51,6 +51,35 @@
           }
         }
       },
+      "LiveCharts/0.9.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/LiveCharts.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/LiveCharts.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "LiveCharts.Wpf/0.9.7": {
+        "type": "package",
+        "dependencies": {
+          "LiveCharts": "0.9.7"
+        },
+        "compile": {
+          "lib/net45/LiveCharts.Wpf.dll": {
+            "related": ".pdb;.XML"
+          }
+        },
+        "runtime": {
+          "lib/net45/LiveCharts.Wpf.dll": {
+            "related": ".pdb;.XML"
+          }
+        }
+      },
       "LiveCharts.Wpf.NetCore3/0.9.7": {
         "type": "package",
         "dependencies": {
@@ -266,6 +295,23 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/NHibernate.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Ninject/3.3.6": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit.ILGeneration": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Ninject.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Ninject.dll": {
             "related": ".xml"
           }
         }
@@ -1861,8 +1907,12 @@
         "dependencies": {
           "Data": "1.0.0",
           "Domain": "1.0.0",
+          "LiveCharts": "0.9.7",
+          "LiveCharts.Wpf": "0.9.7",
           "LiveCharts.Wpf.NetCore3": "0.9.7",
-          "Prism.Wpf": "8.1.97"
+          "Ninject": "3.3.6",
+          "Prism.Wpf": "8.1.97",
+          "Resource": "1.0.0"
         },
         "compile": {
           "bin/placeholder/agent.dll": {}
@@ -1925,8 +1975,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
+          "Data": "1.0.0",
+          "Domain": "1.0.0",
+          "Prism.Wpf": "8.1.97"
         },
         "compile": {
           "bin/placeholder/Knowledge.dll": {}
@@ -1942,8 +1993,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
+          "Data": "1.0.0",
+          "Domain": "1.0.0",
+          "Prism.Wpf": "8.1.97"
         },
         "compile": {
           "bin/placeholder/Network.dll": {}
@@ -1961,14 +2013,10 @@
         "dependencies": {
           "Data": "1.0.0",
           "Domain": "1.0.0",
-          "Experiment": "1.0.0",
-          "Knowledge": "1.0.0",
           "MaterialDesignThemes": "4.7.1",
           "NHibernate": "5.3.11",
-          "Network": "1.0.0",
           "Prism.Wpf": "8.1.97",
-          "System.Data.SqlClient": "4.8.5",
-          "agent": "1.0.0"
+          "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
           "bin/placeholder/Resource.dll": {}
@@ -2050,6 +2098,46 @@
         "lib/netstandard1.0/Iesi.Collections.xml",
         "lib/netstandard1.3/Iesi.Collections.dll",
         "lib/netstandard1.3/Iesi.Collections.xml"
+      ]
+    },
+    "LiveCharts/0.9.7": {
+      "sha512": "p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
+      "type": "package",
+      "path": "livecharts/0.9.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/LiveCharts.dll",
+        "lib/net40/LiveCharts.pdb",
+        "lib/net40/LiveCharts.xml",
+        "lib/net45/LiveCharts.dll",
+        "lib/net45/LiveCharts.pdb",
+        "lib/net45/LiveCharts.xml",
+        "lib/portable-net45+win8+wp8/LiveCharts.XML",
+        "lib/portable-net45+win8+wp8/LiveCharts.dll",
+        "lib/portable-net45+win8+wp8/LiveCharts.pdb",
+        "livecharts.0.9.7.nupkg.sha512",
+        "livecharts.nuspec",
+        "readme.txt"
+      ]
+    },
+    "LiveCharts.Wpf/0.9.7": {
+      "sha512": "lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
+      "type": "package",
+      "path": "livecharts.wpf/0.9.7",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/LiveCharts.Wpf.XML",
+        "lib/net40/LiveCharts.Wpf.dll",
+        "lib/net40/LiveCharts.Wpf.pdb",
+        "lib/net45/LiveCharts.Wpf.XML",
+        "lib/net45/LiveCharts.Wpf.dll",
+        "lib/net45/LiveCharts.Wpf.pdb",
+        "livecharts.wpf.0.9.7.nupkg.sha512",
+        "livecharts.wpf.nuspec",
+        "tools/install.ps1"
       ]
     },
     "LiveCharts.Wpf.NetCore3/0.9.7": {
@@ -2349,6 +2437,21 @@
         "nhibernate-mapping.xsd",
         "nhibernate.5.3.11.nupkg.sha512",
         "nhibernate.nuspec"
+      ]
+    },
+    "Ninject/3.3.6": {
+      "sha512": "93avazUpbRL3IdwvTQF0DKSQB26TeqwMGhZsQNxi/RLSYewhxBkdGDhwWe9DAIRF1+zKDVMv3XkBk8HobKU6wA==",
+      "type": "package",
+      "path": "ninject/3.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Ninject.dll",
+        "lib/net45/Ninject.xml",
+        "lib/netstandard2.0/Ninject.dll",
+        "lib/netstandard2.0/Ninject.xml",
+        "ninject.3.3.6.nupkg.sha512",
+        "ninject.nuspec"
       ]
     },
     "Prism.Core/8.1.97": {
@@ -6373,5 +6476,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0-windows7.0”还原包“LiveCharts 0.9.7”。此包可能与项目不完全兼容。",
+      "libraryId": "LiveCharts",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0-windows7.0”还原包“LiveCharts.Wpf 0.9.7”。此包可能与项目不完全兼容。",
+      "libraryId": "LiveCharts.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

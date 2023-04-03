@@ -1,5 +1,4 @@
-﻿using agent.Data;
-using Data;
+﻿using Data;
 using Domain;
 using Domain.Entities;
 using Domain.Information.Entities;
@@ -33,7 +32,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _selectedItem, value);
-                OnPerpertyChanged(nameof(SelectedItem));
             }
         }
 
@@ -54,7 +52,6 @@ namespace Knowledge.ViewModels
             set 
             {
                 SetProperty(ref _animalConfigs, value);
-                OnPerpertyChanged("AnimalConfigs");
             }
         }
 
@@ -65,7 +62,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _climateConfigs, value);
-                OnPerpertyChanged("AnimalConfigs");
             }
         }
 
@@ -75,8 +71,7 @@ namespace Knowledge.ViewModels
             get { return _electroConfigs; }
             set
             {
-                SetProperty(ref _electroConfigs, value); 
-                OnPerpertyChanged("ElectroConfigs");
+                SetProperty(ref _electroConfigs, value);
             }
         }
 
@@ -87,7 +82,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _groundConfigs,value);
-                OnPerpertyChanged("GroundConfigs");
             }
         }
 
@@ -98,7 +92,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _groundwaterConfigs, value);
-                OnPerpertyChanged("GroundwaterConfigs");
             }
         }
         #endregion
@@ -111,7 +104,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _crisis, value);
-                OnPerpertyChanged("Crisis");
             }
         }
 
@@ -122,7 +114,6 @@ namespace Knowledge.ViewModels
             set
             {
                 SetProperty(ref _selectCrisis, value);
-                OnPerpertyChanged("SelectCrisis");
             }
         }
         #endregion
@@ -135,7 +126,6 @@ namespace Knowledge.ViewModels
             set 
             { 
                 SetProperty(ref _result, value);
-                OnPerpertyChanged("Result");
             }
         }
         #endregion
@@ -272,17 +262,6 @@ namespace Knowledge.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-        }
-        #endregion
-
-        #region 属性改变
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPerpertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
         #endregion
     }

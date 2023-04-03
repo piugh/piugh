@@ -4,11 +4,15 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
+    <PackageReference Include="Ninject" Version="3.3.6" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\data\Data.csproj" />
     <ProjectReference Include="..\domain\Domain.csproj" />
+    <ProjectReference Include="..\Resource\Resource.csproj" />
   </ItemGroup>
 </Project>

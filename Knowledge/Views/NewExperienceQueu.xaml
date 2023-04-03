@@ -1,0 +1,75 @@
+﻿<Window x:Class="Knowledge.Views.NewExperienceQueu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"    
+             Name="NewItem"
+             Title="新建经验队列方案" Height="500" Width="880"  
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid Background="LightBlue">
+        <Label Content="输入信息有误！" Height="30" Margin="320 0 0 20" FontSize="14" Foreground="Red" VerticalAlignment="Bottom"
+                               Visibility="{Binding Warning}"/>
+
+        <TabControl Margin="10,10,10,10" Name="tabcontrol" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基础信息">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <Label Content="方案名称:" Height="40" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding Path = NewItem.Name}" Name="ItemName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="1">
+                        <Label Content="创建者名称:" Height="30" Width="120" Margin="30 40" FontSize="14" />
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14"
+                                 Text="{Binding NewItem.CreateName}"  Name="CreatName"/>
+                    </Canvas>
+                    <Canvas Grid.Row="2">
+                        <Label Content="备注信息：" Height="30" Width="120" Margin="30 40" FontSize="14"/>
+                        <TextBox Height="40" Margin="150 40" Width="500" FontSize="14" TextWrapping="Wrap" Name="Remark"
+                                 Text="{Binding NewItem.Remark}" />
+                    </Canvas>
+                    <Canvas Grid.Row="4">
+                        <Button Content="下一步" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Next1}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem >
+            <TabItem Header="队列配置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="20 0 20 0">
+                            <Label Content="可配置命题列表" Background="WhiteSmoke" HorizontalAlignment="Stretch" FontSize="15"/>
+                            <ListBox ItemsSource="{Binding Experiences}" DisplayMemberPath="Name" BorderBrush="WhiteSmoke" BorderThickness="2"
+                                     HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="250" FontSize="15" Name="ConfigExperiences"/>
+                            <Button Content="添加" Background="LightBlue" BorderBrush="Transparent" Command="{Binding AddExperience}" CommandParameter="{Binding SelectedItem,ElementName=ConfigExperiences}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="20 0 20 0">
+                            <Label Content="已配置命题队列" Background="WhiteSmoke" HorizontalAlignment="Stretch" FontSize="15"/>
+                            <ListBox ItemsSource="{Binding ExperienceQueueConfigs}" DisplayMemberPath="Proposition.Name" BorderBrush="WhiteSmoke" BorderThickness="2"
+                                     HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="250" FontSize="15" Name="ExperienceQueue"/>
+                            <Button Content="删除" Background="LightBlue" BorderBrush="Transparent" Command="{Binding DeleteExperience}" CommandParameter="{Binding SelectedItem,ElementName=ExperienceQueue}"/>
+                        </StackPanel>
+                    </Grid>
+                    <Canvas Grid.Row="1">
+                        <Button  Content="完成" Height="30" Width="120" Canvas.Right="20" Canvas.Top="10" Background="LightBlue" BorderBrush="Transparent"
+                                Command="{Binding Finish}"  CommandParameter="{Binding ElementName=NewItem}"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

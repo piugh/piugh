@@ -10,11 +10,7 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\agent\agent.csproj" />
     <ProjectReference Include="..\data\Data.csproj" />
     <ProjectReference Include="..\domain\Domain.csproj" />
-    <ProjectReference Include="..\Experiment\Experiment.csproj" />
-    <ProjectReference Include="..\Knowledge\Knowledge.csproj" />
-    <ProjectReference Include="..\Network\Network.csproj" />
   </ItemGroup>
 </Project>

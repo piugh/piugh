@@ -1,5 +1,4 @@
-﻿using agent.Data;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Information.Entities;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -16,14 +15,13 @@ namespace Knowledge.ViewModels
     {
         #region 当前选中的方案
         //所选个体集方案个体列表
-        private Rumor _selectedItem;
-        public Rumor SelectedItem
+        private Proposition _selectedItem;
+        public Proposition SelectedItem
         {
             get { return _selectedItem; }
             set
             {
                 SetProperty(ref _selectedItem, value);
-                OnPerpertyChanged(nameof(SelectedItem));
             }
         }
         #endregion
@@ -31,7 +29,6 @@ namespace Knowledge.ViewModels
         #region 初始化
         private void Initialization()
         {
-        
         }
         #endregion
 
@@ -44,7 +41,7 @@ namespace Knowledge.ViewModels
         #region 导航拦截传参
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            SelectedItem = (Rumor)navigationContext.Parameters["SelectedItem"];
+            SelectedItem = (Proposition)navigationContext.Parameters["SelectedItem"];
             Initialization();
         }
 
@@ -58,17 +55,6 @@ namespace Knowledge.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-        }
-        #endregion
-
-        #region 属性改变
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPerpertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
         #endregion
     }

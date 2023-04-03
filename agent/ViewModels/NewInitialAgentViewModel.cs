@@ -138,8 +138,7 @@ namespace agent.ViewModels
                 Warning = Visibility.Visible;
             }
             else
-            {
-                
+            {              
                 NewItem.CreateTime = DateTime.Now;
                 NewItem.Proportion = SelectedItem;
                 AgentSetAccess.Add(NewItem);
@@ -288,11 +287,13 @@ namespace agent.ViewModels
                         }
                     }
                 }
+                NHibernateHelper.CloseSession();
+                newwindow.Close();
             }
-            newwindow.Close();
         }
         #endregion
 
+        #region Main
         public NewInitialAgentViewModel()
         {
             InitialNewItem();
@@ -301,5 +302,6 @@ namespace agent.ViewModels
             Finish = new DelegateCommand<Window>(FinishMethod);
 
         }
+        #endregion
     }
 }

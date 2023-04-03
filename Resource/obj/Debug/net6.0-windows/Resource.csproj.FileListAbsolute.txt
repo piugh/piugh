@@ -2,10 +2,7 @@ C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Resource.dep
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Resource.dll
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Resource.pdb
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource.csproj.AssemblyReference.cache
-C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Views\ViewA.g.cs
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource_MarkupCompile.cache
-C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource_MarkupCompile.lref
-C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Views\ViewA.baml
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource.g.resources
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource.AssemblyInfoInputs.cache
@@ -76,10 +73,8 @@ C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network\Mapp
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network\Mapping\NetworkSch.hbm.xml
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network\Mapping\OptionalPara.hbm.xml
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network\Mapping\OptionParaConfig.hbm.xml
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\agent.dll
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Data.dll
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Domain.dll
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Data.pdb
 C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Domain.pdb
 C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Resource.csproj.CopyComplete
@@ -168,9 +163,5 @@ C:\Users\18747\source\repos\Rumor1\Resource\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor1\Resource\bin\Debug\net6.0-windows\Data.pdb
 C:\Users\18747\source\repos\Rumor1\Resource\bin\Debug\net6.0-windows\Domain.pdb
 C:\Users\18747\source\repos\Rumor1\Resource\obj\Debug\net6.0-windows\Resource.csproj.CopyComplete
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Experiment.dll
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Knowledge.dll
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network.dll
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Experiment.pdb
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Knowledge.pdb
-C:\Users\18747\source\repos\Rumor\Resource\bin\Debug\net6.0-windows\Network.pdb
+C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Views\BaseInfoView.baml
+C:\Users\18747\source\repos\Rumor\Resource\obj\Debug\net6.0-windows\Views\BaseInfoView.g.cs

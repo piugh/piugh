@@ -2,17 +2,11 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\ExperimentManage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\ExperimentResult.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\ExperimentManage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\ExperimentResult.xaml">
       <SubType>Designer</SubType>
     </Page>
