@@ -90,9 +90,15 @@ namespace Data
             Session.Flush();
         }
 
-        public void Delete(T obj)
+        public void Delete(string table, object obj)
         {
-            Session.Delete(obj);
+            Session.Delete(table, obj);
+            Session.Flush();
+        }
+
+        public void DeleteT(T entity)
+        {
+            Session.Delete(entity);
             Session.Flush();
         }
         #endregion

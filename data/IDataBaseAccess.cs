@@ -16,7 +16,8 @@ namespace Data
         T LoadById(int id);
         int Save(T obj);
         void Update(T obj);
-        void Delete(T obj);
+        void Delete(string table, object obj);
         void Add(T obj);
+        void DeleteT(T obj);
     }
 }

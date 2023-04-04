@@ -17,45 +17,84 @@ namespace Data
         public NHibernateHelper()
         {
         }
-
         private static ISessionFactory? SessionFactory { get; set; }
-        public static string? ConnectionString { get; set; }
 
-        // 创建ISessionFactory
-        public static ISessionFactory GetSessionFactory<T>() where T : ICurrentSessionContext
+        public static ISessionFactory GetSessionFactory()
         {
-            var cfg = new Configuration();
-
-            cfg.DataBaseIntegration(x =>
-            {
-                if (!string.IsNullOrEmpty(ConnectionString)
-                    && ConnectionString.Trim() != "")
-                {
-                    x.ConnectionString = ConnectionString;
-                }
-            });
-
-            cfg.Configure().CurrentSessionContext<T>();
-            return cfg.BuildSessionFactory();
+            //配置ISessionFactory
+            return (new Configuration()).Configure().BuildSessionFactory();
         }
 
-        //打开ISession
+        // 打开ISession
         public static ISession GetSession()
         {
             if (SessionFactory == null)
             {
-                SessionFactory = GetSessionFactory<ThreadStaticSessionContext>();
+                SessionFactory = GetSessionFactory();
             }
-            if (CurrentSessionContext.HasBind(SessionFactory))
-            {
-                return SessionFactory.GetCurrentSession();
-            }
-
-            var session = SessionFactory.OpenSession();
-            CurrentSessionContext.Bind(session);
-
-            return session;
+            return SessionFactory.OpenSession();
         }
+
+        public static void CloseSession()
+        {
+            if (SessionFactory != null )
+            {
+                SessionFactory.Close();
+            }
+        }
+
+
+        //public static string? ConnectionString { get; set; }
+
+        //// 创建ISessionFactory
+        //public static ISessionFactory GetSessionFactory<T>() where T : ICurrentSessionContext
+        //{
+        //    var cfg = new Configuration();
+
+        //    cfg.DataBaseIntegration(x =>
+        //    {
+        //        if (!string.IsNullOrEmpty(ConnectionString)
+        //            && ConnectionString.Trim() != "")
+        //        {
+        //            x.ConnectionString = ConnectionString;
+        //        }
+        //    });
+
+        //    cfg.Configure().CurrentSessionContext<T>();
+        //    return cfg.BuildSessionFactory();
+        //}
+
+        ////打开ISession
+        //public static ISession GetSession()
+        //{
+        //    if (SessionFactory == null)
+        //    {
+        //        SessionFactory = GetSessionFactory<ThreadStaticSessionContext>();
+        //    }
+        //    if (CurrentSessionContext.HasBind(SessionFactory))
+        //    {
+        //        return SessionFactory.GetCurrentSession();
+        //    }
+
+        //    var session = SessionFactory.OpenSession();
+        //    CurrentSessionContext.Bind(session);
+
+        //    return session;
+        //}
+
+        ////关闭Isession
+        //public static void CloseSession()
+        //{
+        //    if (SessionFactory != null && CurrentSessionContext.HasBind(SessionFactory))
+        //    {
+        //        var session = CurrentSessionContext.Unbind(SessionFactory);
+        //        if (session != null && session.IsOpen)
+        //        {
+        //            session.Close();
+        //        }
+        //    }
+        //}
+
     }
     public static class DataAccessFactory
     {
