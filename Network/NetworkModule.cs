@@ -15,9 +15,17 @@ namespace Network
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NetConfig>();
+            containerRegistry.RegisterForNavigation<NetConfig_Modelconfig>();
+
             containerRegistry.RegisterForNavigation<NetParameter>();
+            containerRegistry.RegisterForNavigation<NetParameter_Paraconfig>();
+
             containerRegistry.RegisterForNavigation<NetResult>();
+            containerRegistry.RegisterForNavigation<NetResult_Resultinfo>();
+
             containerRegistry.RegisterForNavigation<NetStructure>();
+            containerRegistry.RegisterForNavigation<NetStructure_Pararefer>();
+
         }
     }
 }

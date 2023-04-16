@@ -8,10 +8,22 @@
     <Compile Update="Views\ExperienceQueu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ExperienceQueu_Queueinfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Experience_Details.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Message.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MessageQueu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MessageQueu_Queueinfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Message_Details.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NewMessage.xaml.cs">
@@ -25,16 +37,25 @@
     <Page Update="Views\ExperienceQueu.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ExperienceQueu_Queueinfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Experience_Details.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Message.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MessageQueu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\NewMessage.xaml">
+    <Page Update="Views\MessageQueu_Queueinfo.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ViewA.xaml">
+    <Page Update="Views\Message_Details.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewMessage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

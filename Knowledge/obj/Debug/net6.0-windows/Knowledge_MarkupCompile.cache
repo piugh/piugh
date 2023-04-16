@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-9-55290085
+12-1238774034
 
-191980715620
+25997524868
 206-959767802
-Views\Experience.xaml;Views\ExperienceQueu.xaml;Views\Message.xaml;Views\MessageQueu.xaml;Views\NewExperience.xaml;Views\NewExperienceQueu.xaml;Views\NewMessage.xaml;Views\NewMessageQueu.xaml;Views\ViewA.xaml;
+Views\Experience.xaml;Views\ExperienceQueu.xaml;Views\ExperienceQueu_Queueinfo.xaml;Views\Experience_Details.xaml;Views\Message.xaml;Views\MessageQueu.xaml;Views\MessageQueu_Queueinfo.xaml;Views\Message_Details.xaml;Views\NewExperience.xaml;Views\NewExperienceQueu.xaml;Views\NewMessage.xaml;Views\NewMessageQueu.xaml;
 
 False
 

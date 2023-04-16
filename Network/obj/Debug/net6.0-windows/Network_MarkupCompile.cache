@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-8358255876
+12742446025
 
-17-988981423
+25-1419007449
 206-959767802
-Views\NetConfig.xaml;Views\NetParameter.xaml;Views\NetResult.xaml;Views\NetStructure.xaml;Views\NewNetConfig.xaml;Views\NewNetParameter.xaml;Views\NewNetStructure.xaml;Views\ViewA.xaml;
+Views\NetConfig.xaml;Views\NetConfig_Modelconfig.xaml;Views\NetParameter.xaml;Views\NetParameter_Paraconfig.xaml;Views\NetResult.xaml;Views\NetResult_Resultinfo.xaml;Views\NetStructure.xaml;Views\NetStructure_Pararefer.xaml;Views\NewNetConfig.xaml;Views\NewNetParameter.xaml;Views\NewNetStructure.xaml;Views\ViewA.xaml;
 
 False
 

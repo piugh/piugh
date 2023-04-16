@@ -5,13 +5,25 @@
     <Compile Update="Views\NetConfig.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\NetConfig_Modelconfig.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NetParameter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NetParameter_Paraconfig.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NetResult.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\NetResult_Resultinfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NetStructure.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NetStructure_Pararefer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -19,13 +31,25 @@
     <Page Update="Views\NetConfig.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NetConfig_Modelconfig.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NetParameter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NetParameter_Paraconfig.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NetResult.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\NetResult_Resultinfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NetStructure.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NetStructure_Pararefer.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

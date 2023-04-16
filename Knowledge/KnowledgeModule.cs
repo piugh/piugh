@@ -15,9 +15,17 @@ namespace Knowledge
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<Message>();
+            containerRegistry.RegisterForNavigation<Message_Details>();
+
             containerRegistry.RegisterForNavigation<MessageQueu>();
+            containerRegistry.RegisterForNavigation<MessageQueu_Queueinfo>();
+
             containerRegistry.RegisterForNavigation<Experience>();
+            containerRegistry.RegisterForNavigation<Experience_Details>();
+
             containerRegistry.RegisterForNavigation<ExperienceQueu>();
+            containerRegistry.RegisterForNavigation<ExperienceQueu_Queueinfo>();
+
         }
     }
 }

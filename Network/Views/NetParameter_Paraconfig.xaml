@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Network.Views.NetParameter_Paraconfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SelectedItem.ModelParaConfigs}" IsReadOnly =" True" Margin="20 0 20 20"
+                          CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="参数名称" Binding="{Binding OptionalParaConfig.OptionalPara.Name}"/>
+                <DataGridTextColumn Header="参数值" Binding="{Binding Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

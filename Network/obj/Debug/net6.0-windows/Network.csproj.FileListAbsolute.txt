@@ -281,3 +281,11 @@ C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetS
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetConfig.g.cs
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetParameter.g.cs
 C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NewNetStructure.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetConfig_Modelconfig.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetParameter_Paraconfig.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetResult_Resultinfo.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetStructure_Pararefer.baml
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetConfig_Modelconfig.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetParameter_Paraconfig.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetResult_Resultinfo.g.cs
+C:\Users\18747\source\repos\Rumor\Network\obj\Debug\net6.0-windows\Views\NetStructure_Pararefer.g.cs

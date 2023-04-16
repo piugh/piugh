@@ -257,14 +257,12 @@ C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Exper
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ExperienceQueu.g.cs
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Message.g.cs
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\MessageQueu.g.cs
-C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ViewA.g.cs
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge_MarkupCompile.cache
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge_MarkupCompile.lref
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Experience.baml
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ExperienceQueu.baml
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Message.baml
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\MessageQueu.baml
-C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ViewA.baml
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge.g.resources
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Knowledge.AssemblyInfoInputs.cache
@@ -283,3 +281,11 @@ C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewEx
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewExperienceQueu.g.cs
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessageQueu.g.cs
 C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\NewMessageQueu.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Message_Details.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Message_Details.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ExperienceQueu_Queueinfo.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Experience_Details.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\MessageQueu_Queueinfo.baml
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\ExperienceQueu_Queueinfo.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\Experience_Details.g.cs
+C:\Users\18747\source\repos\Rumor\Knowledge\obj\Debug\net6.0-windows\Views\MessageQueu_Queueinfo.g.cs

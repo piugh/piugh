@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Network.Views.NetResult_Resultinfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="网络模型："/>
+                    <TextBlock Text="{Binding SelectedItem.NetworkSch.Name}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="个体数量："/>
+                    <TextBlock Text="{Binding SelectedItem.NetNodes.Count}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            <Border Grid.Row="1" Background="LightCyan" CornerRadius="10"/>
+        </Grid>
+    </Grid>
+</UserControl>

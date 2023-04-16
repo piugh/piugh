@@ -111,7 +111,7 @@ namespace Network.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Network;component/views/newnetparameter.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Network;V1.0.0.0;component/views/newnetparameter.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\NewNetParameter.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

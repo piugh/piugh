@@ -9,50 +9,12 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
+        <Border Background="SkyBlue" CornerRadius="20,20,0,0" Margin="5 5 5 0"></Border>
         <!--详细信息模块-->
-        <TabControl Margin="20">
+        <TabControl Margin="10" SelectedIndex="{Binding TabIndex}">
             <TabItem Header="基本信息">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="方案名称:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.Name}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="1" Text="创建者:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateName}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="2" Text="创建时间:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateTime}" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Grid.Row="3" Text="备注信息:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Remark}" Grid.ColumnSpan="2"/>
-                </Grid>
             </TabItem>
             <TabItem Header="网络结果">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="7*"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="网络模型："/>
-                            <TextBlock Text="{Binding SelectedItem.NetworkSch.Name}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="个体数量："/>
-                            <TextBlock Text="{Binding NodeNum}"/>
-                        </StackPanel>
-
-
-                    </StackPanel>
-                    <Border Grid.Row="1" Background="LightCyan" CornerRadius="10"/>
-                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

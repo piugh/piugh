@@ -9,40 +9,12 @@
              xmlns:prism="http://prismlibrary.com/"  
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
+        <Border Background="SkyBlue" CornerRadius="20,20,0,0" Margin="5 5 5 0"></Border>
         <!--详细信息模块-->
-        <TabControl Margin="20">
+        <TabControl Margin="10" SelectedIndex="{Binding TabIndex}">
             <TabItem Header="基本信息">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="方案名称:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="0" Margin="120,20,20,20" FontSize="18"  Text="{Binding SelectedItem.Name}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="1" Text="创建者:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="1" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateName}" Grid.ColumnSpan="2" />
-
-                    <TextBlock Grid.Row="2" Text="创建时间:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="2" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.CreateTime}" Grid.ColumnSpan="2"/>
-
-                    <TextBlock Grid.Row="3" Text="备注信息:" Margin="20,20,20,20" FontSize="18" Grid.ColumnSpan="2" />
-                    <TextBlock Grid.Row="3" FontSize="18"   Margin="120,20,20,20" Text="{Binding SelectedItem.Remark}" Grid.ColumnSpan="2"/>
-                </Grid>
             </TabItem>
             <TabItem Header="队列消息">
-                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SelectedItem.PropositionQueueConfigs}" IsReadOnly =" True"
-                          CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="True">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="序号" Binding="{Binding Ordinal}"/>
-                        <DataGridTextColumn Header="消息名称" Binding="{Binding Proposition.Name}"/>
-                        <DataGridTextColumn Header="创建者名称" Binding="{Binding Proposition.CreateName}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-
             </TabItem>
         </TabControl>
     </Grid>

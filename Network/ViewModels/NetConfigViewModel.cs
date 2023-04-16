@@ -23,15 +23,46 @@ namespace Network.ViewModels
         }
         #endregion
 
+        #region 显示信息
+        private readonly IRegionManager _regionManager;
+        private int _tabIndex;
+        public int TabIndex
+        {
+            get { return _tabIndex; }
+            set
+            {
+                SetProperty(ref _tabIndex, value);
+                if (value == 0)
+                {
+                    IRegion region = _regionManager.Regions["TabInfo"];
+                    region.RemoveAll();
+                    NavigationParameters parameter = new NavigationParameters();
+                    parameter.Add("SelectedItem", SelectedItem);
+                    _regionManager.RequestNavigate("TabInfo", "BaseInfoView", parameter);
+                }
+                if (value == 1)
+                {
+                    IRegion region = _regionManager.Regions["TabInfo"];
+                    region.RemoveAll();
+                    NavigationParameters parameter = new NavigationParameters();
+                    parameter.Add("SelectedItem", SelectedItem);
+                    _regionManager.RequestNavigate("TabInfo", "NetConfig_Modelconfig", parameter);
+                }
+            }
+        }
+        #endregion
+
         #region 初始化
         private void Initialization()
         {
+            TabIndex= 0;
         }
         #endregion
 
         #region Main
-        public NetConfigViewModel()
+        public NetConfigViewModel(IRegionManager regionManager)
         {
+            _regionManager = regionManager;
         }
         #endregion
 
