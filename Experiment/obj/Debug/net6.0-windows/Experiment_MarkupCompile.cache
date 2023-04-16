@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-3184733301
+6-1357623142
 
-71127954476
-213-757937879
-Views\ExperimentItem.xaml;Views\ExperimentResult.xaml;Views\ViewA.xaml;
+131028938310
+209-1278584744
+Views\ExperimentItem.xaml;Views\ExperimentItem_RumorDelivery.xaml;Views\ExperimentResult.xaml;Views\ExperimentResult_Inforesult.xaml;Views\ExperimentResult_Overview.xaml;Views\NewExperimentItem.xaml;
 
 False
 

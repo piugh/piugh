@@ -10,104 +10,14 @@
              xmlns:prism="http://prismlibrary.com/" 
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
+        <Border Background="SkyBlue" CornerRadius="20,20,0,0" Margin="5 5 5 0"></Border>
         <!--详细信息模块-->
-        <TabControl Margin="20">
-            <TabItem Header="基本信息">
-                <ContentControl prism:RegionManager.RegionName="ProportionBaseInfoRegion" Name="BaseInfo"
-                                prism:RegionManager.RegionContext="{Binding SelectedItem}"/>
-                
+        <TabControl Margin="10" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基本信息" Height="40">
             </TabItem>
-            
-            <TabItem Header="饼状图">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Row="0" Grid.Column="0" Content="整体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Border Grid.Row="0" Grid.Column="0" Margin="0 20 0 0">
-                        <lvc:PieChart LegendLocation="Bottom" Series="{Binding OccupationSeries}" Hoverable="True">
-                            <lvc:PieChart.DataTooltip>
-                                <lvc:DefaultTooltip BulletSize="10"/>
-                            </lvc:PieChart.DataTooltip>
-                        </lvc:PieChart>
-                    </Border>
-                    <Border Grid.Row="0" Grid.Column="1" Margin="0 20 0 0">
-                        <lvc:PieChart LegendLocation="Bottom"  Series="{Binding LocationSeries}"  Hoverable="False" >
-                            <lvc:PieChart.DataTooltip>
-                                <lvc:DefaultTooltip BulletSize="10"/>
-                            </lvc:PieChart.DataTooltip>
-                        </lvc:PieChart>
-                    </Border>
-
-                    <Label Grid.Row="1" Content="具体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Grid Grid.Row="1" Grid.Column="0" Margin="0 20 10 0">
-                        <ComboBox ItemsSource="{Binding SelectedItem.OccupationConfigs}" DisplayMemberPath="Occupation.Name" 
-                                  SelectedItem="{Binding SelectedOccupationConfig}" SelectedIndex="0" VerticalAlignment="Top"/>
-                        <Border Margin="0 25 0 0">
-                            <lvc:PieChart LegendLocation="Bottom"  Series="{Binding EduLevelSeries}"  Hoverable="False" >
-                                <lvc:PieChart.DataTooltip>
-                                    <lvc:DefaultTooltip BulletSize="10"/>
-                                </lvc:PieChart.DataTooltip>
-                            </lvc:PieChart>
-                        </Border>
-                    </Grid>
-
-                    <Grid Grid.Row="1" Grid.Column="1" Margin="0 20 10 0">
-                        <ComboBox ItemsSource="{Binding  SelectedOccupationConfig.EduLevelConfigs}" DisplayMemberPath="EduLevel.Name" 
-                                  SelectedItem="{Binding SelectedEduLevelConfig}" SelectedIndex="0" VerticalAlignment="Top"/>
-                        <Border Margin="0 25 0 0">
-                            <lvc:PieChart LegendLocation="Bottom"  Series="{Binding AgeLevelSeries}"  Hoverable="False" >
-                                <lvc:PieChart.DataTooltip>
-                                    <lvc:DefaultTooltip BulletSize="10"/>
-                                </lvc:PieChart.DataTooltip>
-                            </lvc:PieChart>
-                        </Border>
-                    </Grid>
-
-
-                    <!--<lvc:PieChart Grid.Row="0" Grid.Column="0" DataClick="pipChart_DataClick" Hoverable="False">
-                        <lvc:PieChart.Series>
-                            <lvc:PieSeries Title="Maria" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="3"/>
-                            <lvc:PieSeries Title="Charles" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="4"/>
-                            <lvc:PieSeries Title="Frida" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="6"/>
-                            <lvc:PieSeries Title="Frederic" DataLabels="True" LabelPoint="{Binding PointLabel}" Values="2"/>
-                        </lvc:PieChart.Series>
-                    </lvc:PieChart>-->
-                    
-                    <!--<lvc:PieChart Grid.Row="0" Grid.Column="1" LegendLocation="Bottom"  Series="{Binding occupationSeries}"  Hoverable="False" >
-                        <lvc:PieChart.DataTooltip>
-                            <lvc:DefaultTooltip BulletSize="10"/>
-                        </lvc:PieChart.DataTooltip>
-                    </lvc:PieChart>-->
-                </Grid>
-
-
-
+            <TabItem Header="饼状图" Height="40">
             </TabItem>
-            <TabItem Header="树状图">
-                <ScrollViewer Margin="40 0" FontSize="15">
-                    <TreeView Padding="0" Margin="0" BorderThickness="1" 
-                                      ItemsSource="{Binding Path=TreeDatas}">
-                        <TreeView.ItemTemplate>
-                            <HierarchicalDataTemplate ItemsSource="{Binding Path=TreeDatas}">
-                                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
-                                    <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}"></TextBlock>
-                                    <TextBox Text="{Binding Value}" Width="100" Margin="10,0,0,0"/>
-                                    <StackPanel.ToolTip>
-                                        <TextBlock VerticalAlignment="Center" Text="{Binding Classify.Name}" TextWrapping="Wrap" MaxWidth="200" ></TextBlock>
-                                    </StackPanel.ToolTip>
-                                </StackPanel>
-                            </HierarchicalDataTemplate>
-                        </TreeView.ItemTemplate>
-                    </TreeView>
-                </ScrollViewer>
+            <TabItem Header="树状图" Height="40">
             </TabItem>
         </TabControl>
     </Grid>

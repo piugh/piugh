@@ -4,7 +4,8 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>

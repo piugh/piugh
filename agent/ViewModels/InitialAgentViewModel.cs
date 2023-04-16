@@ -40,9 +40,28 @@ namespace agent.ViewModels
                 SetProperty(ref _tabIndex, value); 
                 if(value == 0)
                 {
-                    IRegion region = _regionManager.Regions["InitialAgentBaseInfoRegion"];
+                    IRegion region = _regionManager.Regions["TabInfo"];
                     region.RemoveAll();
-                    _regionManager.RegisterViewWithRegion("InitialAgentBaseInfoRegion", typeof(BaseInfoView));
+                    NavigationParameters parameter = new NavigationParameters();
+                    parameter.Add("SelectedItem", SelectedItem);
+                    _regionManager.RequestNavigate("TabInfo", "BaseInfoView", parameter);
+                }
+                if (value == 1)
+                {
+                    IRegion region = _regionManager.Regions["TabInfo"];
+                    region.RemoveAll();
+                    NavigationParameters parameter = new NavigationParameters();
+                    parameter.Add("SelectedItem", SelectedItem.Proportion);
+                    _regionManager.RequestNavigate("TabInfo", "Proportion_Piechart", parameter);
+                }
+                //个体集表格
+                if (value == 2)
+                {
+                    IRegion region = _regionManager.Regions["TabInfo"];
+                    region.RemoveAll();
+                    NavigationParameters parameter = new NavigationParameters();
+                    parameter.Add("SelectedItem", SelectedItem);
+                    _regionManager.RequestNavigate("TabInfo", "InitialAgent_AgentSetTable", parameter);
                 }
             }
         }
@@ -51,14 +70,6 @@ namespace agent.ViewModels
         #region 初始化
         private void Initialization()
         {
-            int id = 1;
-            if (SelectedItem.Agents == null)
-                return;           
-            foreach (Agent agent in SelectedItem.Agents)
-            {
-                agent.id = id;
-                id++;
-            }
             TabIndex = 0;
         }
         #endregion

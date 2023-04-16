@@ -15,14 +15,6 @@ namespace Resource.Views
         public BaseInfoView()
         {
             InitializeComponent();
-            RegionContext.GetObservableContext(this).PropertyChanged += SelectedItemChanged;
         }
-        private void SelectedItemChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var context = (ObservableObject<object>)sender;
-            var selectedItem = (InfoData)context.Value;
-            ((BaseInfoViewModel)DataContext).SelectedItem = selectedItem;
-        }
-
     }
 }

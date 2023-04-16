@@ -22,9 +22,15 @@
 
         <!--快速查询-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ComboBox IsTextSearchEnabled="False" IsEditable="True" HorizontalAlignment="Center"
-                              VerticalAlignment="Top" Background="LightCyan"/>
-            <TextBlock Margin="10 3 0 0" Text="快速查询" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center" Text="搜索内容" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox HorizontalAlignment="Center"  VerticalAlignment="Top" Width="100" Name="Search" HorizontalContentAlignment="Center">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                    <prism:InvokeCommandAction Command="{Binding SearchForList}" CommandParameter="{Binding Text, ElementName=Search}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            </TextBox>
+
         </StackPanel>
 
         <!--列表栏-->

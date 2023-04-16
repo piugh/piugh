@@ -13,6 +13,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Controls;
+using System.Windows.Data;
+using Experiment.Views;
 
 namespace Rumor.ViewModels
 {
@@ -43,6 +47,13 @@ namespace Rumor.ViewModels
             get { return _myItem; }
             set { SetProperty(ref _myItem, value); }
         }
+        //搜索到的方案
+        private ObservableCollection<InfoData> _allItem;
+        public ObservableCollection<InfoData> AllItem
+        {
+            get { return _allItem; }
+            set { SetProperty(ref _allItem, value); }
+        }
         //list标题
         private string _listtitle;
         public string Listtitle
@@ -64,12 +75,44 @@ namespace Rumor.ViewModels
                 if (value != _selectedItem && value != null)
                 {
                     SetProperty(ref _selectedItem, value);
-                    IRegion region = _regionManager.Regions["DetialOfItem"];
+                    IRegion region = _regionManager.Regions["TabInfo"];
+                    region.RemoveAll();
+                    region = _regionManager.Regions["DetialOfItem"];
                     region.RemoveAll();
                     string detailView = RumorDic[TypeNamePara][2];
                     NavigationParameters parameter = new NavigationParameters();
                     parameter.Add("SelectedItem", SelectedItem);
                     _regionManager.RequestNavigate("DetialOfItem", detailView, parameter);
+                }
+            }
+        }
+        #endregion
+
+        #region 搜索筛选
+        public DelegateCommand<string> SearchForList { get; set; }
+        private void SearchForListMethod(string s)
+        {
+            if (s!=null && AllItem!=null)
+            {
+                List<InfoData> temp = new();
+                foreach (var i in AllItem)
+                {
+                    if (i.Name.Contains(s) || i.CreateName.Contains(s))
+                    {
+                        temp.Add(i);
+                    }
+                }
+                MyItem.Clear();
+                foreach (var i in temp)
+                {
+                    MyItem.Add(i);
+                }
+            }
+            if(s==null)
+            {
+                foreach (var i in AllItem)
+                {
+                    MyItem.Add(i);
                 }
             }
         }
@@ -82,6 +125,7 @@ namespace Rumor.ViewModels
             string TypeName = RumorDic[TypeNamePara][0];
             Listtitle = RumorDic[TypeNamePara][1];
             DataAccess = DataAccessFactory.CreateAccess(TypeName);
+            AllItem = new();
             MyItem = new();
             var temp = DataAccess.GetAll();
             foreach (var item in temp)
@@ -90,8 +134,10 @@ namespace Rumor.ViewModels
                 {
                     type = item.GetType();
                 }
+                AllItem.Add(item as Domain.InfoData);
                 MyItem.Add(item as Domain.InfoData);
             }
+
         }
         #endregion
 
@@ -169,6 +215,14 @@ namespace Rumor.ViewModels
                     }
 
                 #endregion
+                #region 计算实验模块
+                case "ExperimentItem":
+                    {
+                        NewExperimentItem newExperimentItem = new NewExperimentItem();
+                        newExperimentItem.ShowDialog();
+                        break;
+                    }
+                #endregion
                 default:
                     return;
             }
@@ -199,17 +253,20 @@ namespace Rumor.ViewModels
         public ListOfItemViewModel(IRegionManager regionManager)
         {
             _regionManager = regionManager;
+            SearchForList = new DelegateCommand<string>(SearchForListMethod);
             NewItemCommand = new DelegateCommand(NewItem);
             DeleteItemCommand = new DelegateCommand(DeleteItem);
             CopyItemCommand = new DelegateCommand<string>(CopyItem);
         }
         #endregion
 
-        #region 导航拦截传参（Main）
+        #region 导航拦截传参
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             TypeNamePara = navigationContext.Parameters["TypeOfList"].ToString();
-            IRegion region = _regionManager.Regions["DetialOfItem"];
+            IRegion region = _regionManager.Regions["TabInfo"];
+            region.RemoveAll();
+            region = _regionManager.Regions["DetialOfItem"];
             region.RemoveAll();
             //获取字典
             GetRumorDic();

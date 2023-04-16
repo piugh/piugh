@@ -1031,8 +1031,10 @@
       },
       "Experiment/1.0.0": {
         "dependencies": {
+          "Data": "1.0.0",
+          "Domain": "1.0.0",
           "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
+          "Resource": "1.0.0"
         },
         "runtime": {
           "Experiment.dll": {}

@@ -2,15 +2,36 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\ExperimentItem_RumorDelivery.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ExperimentResult.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExperimentResult_Inforesult.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExperimentResult_Overview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewExperimentItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\ExperimentItem_RumorDelivery.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ExperimentResult.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ViewA.xaml">
+    <Page Update="Views\ExperimentResult_Inforesult.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExperimentResult_Overview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NewExperimentItem.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

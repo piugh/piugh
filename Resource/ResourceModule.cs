@@ -13,7 +13,7 @@ namespace Resource
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //containerRegistry.RegisterForNavigation<BaseInfoView>();
+            containerRegistry.RegisterForNavigation<BaseInfoView>();
         }
     }
 }

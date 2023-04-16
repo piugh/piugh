@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Experiment.Views.ExperimentResult_Inforesult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <!--筛选数据-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="选择个体编号："/>
+                <ComboBox  HorizontalContentAlignment="Center" ItemsSource="{Binding AgentIDs}" SelectedIndex="0"
+                           SelectedItem="{Binding SelectedAgentID}" Width="80"/>
+                <Label Content="仿真步长:" VerticalContentAlignment="Center"/>
+                <ComboBox  HorizontalContentAlignment="Center"  ItemsSource="{Binding StepList}" SelectedIndex="0"
+                           SelectedItem="{Binding SelectedStep}" Width="80"/>
+                <Label Content="筛选方向:" VerticalContentAlignment="Center"/>
+                <ComboBox  HorizontalContentAlignment="Center" Width="80" SelectedIndex="{Binding SendorReceive}">
+                    <ComboBoxItem>无限制</ComboBoxItem>
+                    <ComboBoxItem>发送者</ComboBoxItem>
+                    <ComboBoxItem>接受者</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--消息展示-->
+            <Grid Grid.Row="1">
+                <ScrollViewer>
+                    <ListBox ItemsSource="{Binding SpreadInfos}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="White" CornerRadius="20">
+                                    <Grid Margin="5 0 5 5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="6*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                            <Label Content="发送者" Margin="5"/>
+                                            <Label Content="{Binding Send.id}" Width="30" HorizontalContentAlignment="Center" Margin="5"/>
+                                            <Label Content="接受者" Margin="5"/>
+                                            <Label Content="{Binding Receive.id}" Width="30" HorizontalContentAlignment="Center" Margin="5"/>
+                                            <Label Content="仿真步长" Margin="5"/>
+                                            <Label Content="{Binding Step}" Width="30" HorizontalContentAlignment="Center" Margin="5"/>
+                                            <Label Content="细节数量" Margin="5"/>
+                                            <Label Content="{Binding DetailNum}" Width="30" HorizontalContentAlignment="Center" Margin="5"/>
+                                        </StackPanel>
+                                        <TextBlock Margin="10,5,10,5" TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding MeanString}" Grid.Row="1"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                            
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

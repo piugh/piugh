@@ -256,8 +256,14 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\18747\\source\\repos\\Rumor\\agent\\agent.csproj": {
-                "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\agent\\agent.csproj"
+              "C:\\Users\\18747\\source\\repos\\Rumor\\data\\Data.csproj": {
+                "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\data\\Data.csproj"
+              },
+              "C:\\Users\\18747\\source\\repos\\Rumor\\domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\domain\\Domain.csproj"
+              },
+              "C:\\Users\\18747\\source\\repos\\Rumor\\Resource\\Resource.csproj": {
+                "projectPath": "C:\\Users\\18747\\source\\repos\\Rumor\\Resource\\Resource.csproj"
               }
             }
           }

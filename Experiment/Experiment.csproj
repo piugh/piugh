@@ -7,6 +7,8 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\agent\agent.csproj" />
+    <ProjectReference Include="..\data\Data.csproj" />
+    <ProjectReference Include="..\domain\Domain.csproj" />
+    <ProjectReference Include="..\Resource\Resource.csproj" />
   </ItemGroup>
 </Project>

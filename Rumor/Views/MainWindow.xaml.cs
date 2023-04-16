@@ -45,7 +45,9 @@ namespace Rumor.Views
             //由于需要进行region覆盖，所以view注入选择injetction，不是discover（不能删除qaq）
             region.RemoveAll();
             region = _regionManager.Regions["ListOfItem"];
-            region.RemoveAll();            
+            region.RemoveAll();
+            region = _regionManager.Regions["TabInfo"];
+            region.RemoveAll();
             region = _regionManager.Regions["MenuRegion"];
             region.RemoveAll();
             //按键选择逻辑

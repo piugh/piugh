@@ -2,10 +2,8 @@ C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Experiment
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Experiment.dll
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Experiment.pdb
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.csproj.AssemblyReference.cache
-C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ViewA.g.cs
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment_MarkupCompile.cache
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment_MarkupCompile.lref
-C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ViewA.baml
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.g.resources
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.AssemblyInfoInputs.cache
@@ -15,8 +13,6 @@ C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\refint\Experiment.dll
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.pdb
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\ref\Experiment.dll
-C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\agent.dll
-C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\agent.pdb
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult.g.cs
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult.baml
 C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Experiment.csproj.CopyComplete
@@ -271,3 +267,11 @@ C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\Experimen
 C:\Users\18747\source\repos\Rumor1\Experiment\obj\Debug\net6.0-windows\ref\Experiment.dll
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Resource.dll
 C:\Users\18747\source\repos\Rumor\Experiment\bin\Debug\net6.0-windows\Resource.pdb
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentItem_RumorDelivery.baml
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentItem_RumorDelivery.g.cs
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\NewExperimentItem.baml
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\NewExperimentItem.g.cs
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult_Overview.baml
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult_Overview.g.cs
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult_Inforesult.baml
+C:\Users\18747\source\repos\Rumor\Experiment\obj\Debug\net6.0-windows\Views\ExperimentResult_Inforesult.g.cs

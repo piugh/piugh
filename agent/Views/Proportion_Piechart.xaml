@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="agent.Views.Proportion_Piechart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="统计比例方案名称：" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Text="{Binding SelectedItem.Name}" VerticalAlignment="Center" Margin="120 0 0 0"/>
+            <Separator Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="3"/>
+            <!--整体信息-->
+            <Label Grid.Row="1" Grid.Column="0" Content="整体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Border Grid.Row="1" Grid.Column="0" Margin="0 20 0 5">
+                <lvc:PieChart LegendLocation="Bottom" Series="{Binding OccupationSeries}" Hoverable="True">
+                    <lvc:PieChart.DataTooltip>
+                        <lvc:DefaultTooltip BulletSize="10"/>
+                    </lvc:PieChart.DataTooltip>
+                </lvc:PieChart>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Margin="0 20 0 5">
+                <lvc:PieChart LegendLocation="Bottom"  Series="{Binding LocationSeries}"  Hoverable="False" >
+                    <lvc:PieChart.DataTooltip>
+                        <lvc:DefaultTooltip BulletSize="10"/>
+                    </lvc:PieChart.DataTooltip>
+                </lvc:PieChart>
+            </Border>
+
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="3"/>
+            <!--具体信息-->
+            <Label Grid.Row="2" Content="具体信息饼状图" Background="SkyBlue" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Grid Grid.Row="2" Grid.Column="0" Margin="0 20 0 0">
+                <ComboBox ItemsSource="{Binding SelectedItem.OccupationConfigs}" DisplayMemberPath="Occupation.Name" 
+                          SelectedItem="{Binding SelectedOccupationConfig}" SelectedIndex="0" VerticalAlignment="Top" Margin="0 0 40 0"/>
+                <Border Margin="0 25 0 0">
+                    <lvc:PieChart LegendLocation="Bottom"  Series="{Binding EduLevelSeries}"  Hoverable="False" >
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="10"/>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1" Margin="0 20 0 0">
+                <ComboBox ItemsSource="{Binding  SelectedOccupationConfig.EduLevelConfigs}" DisplayMemberPath="EduLevel.Name" 
+                          SelectedItem="{Binding SelectedEduLevelConfig}" SelectedIndex="0" VerticalAlignment="Top" Margin="0 0 40 0"/>
+                <Border Margin="0 25 0 0">
+                    <lvc:PieChart LegendLocation="Bottom"  Series="{Binding AgeLevelSeries}"  Hoverable="False" >
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="10"/>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+                </Border>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

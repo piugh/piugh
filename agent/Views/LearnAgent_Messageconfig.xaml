@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="agent.Views.LearnAgent_Messageconfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!--个体基本信息表-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Left" VerticalAlignment="Center"  Content="个体筛选" FontSize="15"/>
+                <ComboBox HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" Width="110" SelectedIndex="{Binding SelectPropoerty}">
+                    <ComboBoxItem>(请选择属性类型)</ComboBoxItem>
+                    <ComboBoxItem>性别</ComboBoxItem>
+                    <ComboBoxItem>年龄</ComboBoxItem>
+                    <ComboBoxItem>职业</ComboBoxItem>
+                    <ComboBoxItem>受教育程度</ComboBoxItem>
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" Margin="190,0,0,0" VerticalAlignment="Center" Width="110" SelectedIndex="0"
+                              ItemsSource="{Binding PropertyValue}" DisplayMemberPath="Name"
+                              SelectedItem="{Binding SelectedPropoertyValue}">
+                </ComboBox>
+                <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding NetNodes}" IsReadOnly =" True"
+                              CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="True"
+                              SelectionUnit="FullRow" SelectedIndex="-1" Margin="0 0 0 30" Name="NetNodes">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="编号" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="年龄" Binding="{Binding AgentProperty.Age}"/>
+                        <DataGridTextColumn Header="性别" Binding="{Binding AgentProperty.Gender}"/>
+                        <DataGridTextColumn Header="职业" Binding="{Binding AgentProperty.Occupation.Name}"/>
+                        <DataGridTextColumn Header="受教育程度" Binding="{Binding AgentProperty.EduLevel.Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="确定选择" VerticalAlignment="Bottom" Height="30" Background="LightBlue" Grid.Row="1"
+                                Command="{Binding SelectedNodesCommand}" CommandParameter="{Binding ElementName=NetNodes, Path=SelectedItems}"/>
+
+            </Grid>
+            <!--消息配置-->
+            <Grid Grid.Column="1" Margin="5 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Background="OldLace" HorizontalContentAlignment="Center" SelectedIndex="{Binding InfoIndex}" IsEnabled="{Binding SelectNodeCheck}">
+                        <ComboBoxItem>谣言队列</ComboBoxItem>
+                        <ComboBoxItem>经验队列</ComboBoxItem>
+                    </ComboBox>
+                    <Border Grid.Row="1" Grid.RowSpan="2" Background="White"  DockPanel.Dock="Top" CornerRadius="5" Margin="0 0 0 5"/>
+                    <Label Grid.Row="1" Content="个体已配置信息" FontSize="15" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+                    <ListBox Grid.Row="2" FontSize="13" HorizontalContentAlignment="Left" ItemsSource="{Binding ConfigedInfo}"
+                                         ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                         SelectedIndex="-1" DisplayMemberPath="Name" Margin="0 0 0 5"/>
+
+                    <Border Grid.Row="3" Grid.RowSpan="2" Background="White"  DockPanel.Dock="Top" CornerRadius="5" Margin="0 5 0 0"/>
+                    <Label Grid.Row="3" Content="个体可配置信息" FontSize="15" VerticalContentAlignment="Center"
+                                   HorizontalContentAlignment="Center" />
+                    <ListBox Grid.Row="4" FontSize="13" HorizontalContentAlignment="Left" ItemsSource="{Binding ConfigableInfo}"
+                                     ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                     SelectedIndex="-1" SelectionMode="Multiple" DisplayMemberPath="Name" Margin="0 0 0 5" Name="ConfigableInfo"/>
+                    <Button Grid.Row="5" Content="添加" Background="LightBlue"
+                                    Command="{Binding AddInfosCommand}" CommandParameter="{Binding ElementName=ConfigableInfo, Path=SelectedItems}"/>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

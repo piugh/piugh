@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Experiment.Views.ExperimentResult_Overview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <Grid Margin="20 0 20 20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20 0 20 20" >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="参与节点数:"/>
+                        <Label Content="{Binding SelectedItem.Experiment.NetworkResult.NetNodes.Count}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="产生步长总数:"/>
+                        <Label Content="{Binding StepCount}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="产生消息总数:"/>
+                        <Label Content="{Binding SpreadInfos.Count}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="单位步长传递消息数:"/>
+                        <Label Content="{Binding InfoByEveryStep}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="最终步长传递消息数:"/>
+                        <Label Content="{Binding LastStepInfoCount}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="传播次数最多的消息:" HorizontalAlignment="Left"/>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding WidelyInfo}" FontSize="16" HorizontalAlignment="Center" Margin="20 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 0 0">
+                        <Label FontSize="18" Content="传播该消息的节点数:"/>
+                        <Label Content="{Binding WidelyInfoCount}" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                        <Label FontSize="18" Content="最后消息的细节数量:"/>
+                        <Label Content="{Binding LastInfo.DetailNum}" FontSize="16" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

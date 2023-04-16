@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "Experiment/1.0.0": {
         "dependencies": {
+          "Data": "1.0.0",
+          "Domain": "1.0.0",
           "Prism.Wpf": "8.1.97",
-          "agent": "1.0.0"
+          "Resource": "1.0.0"
         },
         "runtime": {
           "Experiment.dll": {}
@@ -35,40 +37,6 @@
           "lib/netstandard1.3/Iesi.Collections.dll": {
             "assemblyVersion": "4.0.0.4000",
             "fileVersion": "4.0.4.0"
-          }
-        }
-      },
-      "LiveCharts/0.9.7": {
-        "runtime": {
-          "lib/net45/LiveCharts.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
-      "LiveCharts.Wpf/0.9.7": {
-        "dependencies": {
-          "LiveCharts": "0.9.7"
-        },
-        "runtime": {
-          "lib/net45/LiveCharts.Wpf.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
-      "LiveCharts.Wpf.NetCore3/0.9.7": {
-        "dependencies": {
-          "System.Data.DataSetExtensions": "4.5.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/LiveCharts.Wpf.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          },
-          "lib/netcoreapp3.1/LiveCharts.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
           }
         }
       },
@@ -176,18 +144,6 @@
           "lib/netcoreapp2.0/NHibernate.dll": {
             "assemblyVersion": "5.3.0.0",
             "fileVersion": "5.3.11.0"
-          }
-        }
-      },
-      "Ninject/3.3.6": {
-        "dependencies": {
-          "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Ninject.dll": {
-            "assemblyVersion": "3.3.6.0",
-            "fileVersion": "3.3.6.0"
           }
         }
       },
@@ -381,7 +337,6 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
-      "System.Data.DataSetExtensions/4.5.0": {},
       "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -972,21 +927,6 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "agent/1.0.0": {
-        "dependencies": {
-          "Data": "1.0.0",
-          "Domain": "1.0.0",
-          "LiveCharts": "0.9.7",
-          "LiveCharts.Wpf": "0.9.7",
-          "LiveCharts.Wpf.NetCore3": "0.9.7",
-          "Ninject": "3.3.6",
-          "Prism.Wpf": "8.1.97",
-          "Resource": "1.0.0"
-        },
-        "runtime": {
-          "agent.dll": {}
-        }
-      },
       "Data/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
@@ -1041,27 +981,6 @@
       "sha512": "sha512-jlebSjv2a7amYfKXEUsPDSf2Yi9r0/FkvvT6Dy7ehl7z8du+dTGqKDu+fYbnE+WuIz/v3prYm1jpBljMrY1p+Q==",
       "path": "iesi.collections/4.0.4",
       "hashPath": "iesi.collections.4.0.4.nupkg.sha512"
-    },
-    "LiveCharts/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
-      "path": "livecharts/0.9.7",
-      "hashPath": "livecharts.0.9.7.nupkg.sha512"
-    },
-    "LiveCharts.Wpf/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
-      "path": "livecharts.wpf/0.9.7",
-      "hashPath": "livecharts.wpf.0.9.7.nupkg.sha512"
-    },
-    "LiveCharts.Wpf.NetCore3/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-d0HkmjLi+HifeXyD+E14aOMPDRmwkkiqPYW4GDbUS8Z1m6eQPGCShcDcbWwP4tBoWzGEkkSsy+XSHvaoW50b0Q==",
-      "path": "livecharts.wpf.netcore3/0.9.7",
-      "hashPath": "livecharts.wpf.netcore3.0.9.7.nupkg.sha512"
     },
     "MaterialDesignColors/2.1.1": {
       "type": "package",
@@ -1132,13 +1051,6 @@
       "sha512": "sha512-haSav0cGRWshRJMhm3auFnw3I0kbKzzuf2F/Wq0TyDgEoEniXS1sYjj71mfMDEbYTOhf7zisgWRrfVH35cverA==",
       "path": "nhibernate/5.3.11",
       "hashPath": "nhibernate.5.3.11.nupkg.sha512"
-    },
-    "Ninject/3.3.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-93avazUpbRL3IdwvTQF0DKSQB26TeqwMGhZsQNxi/RLSYewhxBkdGDhwWe9DAIRF1+zKDVMv3XkBk8HobKU6wA==",
-      "path": "ninject/3.3.6",
-      "hashPath": "ninject.3.3.6.nupkg.sha512"
     },
     "Prism.Core/8.1.97": {
       "type": "package",
@@ -1349,13 +1261,6 @@
       "sha512": "sha512-DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==",
       "path": "system.console/4.3.0",
       "hashPath": "system.console.4.3.0.nupkg.sha512"
-    },
-    "System.Data.DataSetExtensions/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-221clPs1445HkTBZPL+K9sDBdJRB8UN8rgjO3ztB0CQ26z//fmJXtlsr6whGatscsKGBrhJl5bwJuKSA8mwFOw==",
-      "path": "system.data.datasetextensions/4.5.0",
-      "hashPath": "system.data.datasetextensions.4.5.0.nupkg.sha512"
     },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",
@@ -1762,11 +1667,6 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
-    },
-    "agent/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "Data/1.0.0": {
       "type": "project",

@@ -5,7 +5,13 @@
     <Compile Update="Views\InitialAgent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\InitialAgent_AgentSetTable.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LearnAgent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LearnAgent_Messageconfig.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NewInitialAgent.xaml.cs">
@@ -20,12 +26,24 @@
     <Compile Update="Views\Proportion.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Proportion_Piechart.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Proportion_Treemap.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\InitialAgent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\InitialAgent_AgentSetTable.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LearnAgent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LearnAgent_Messageconfig.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NewInitialAgent.xaml">
@@ -38,6 +56,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Proportion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Proportion_Piechart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Proportion_Treemap.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

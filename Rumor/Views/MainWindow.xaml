@@ -64,8 +64,14 @@
             </Grid.ColumnDefinitions>
             <ContentControl Grid.Column="0" prism:RegionManager.RegionName="MenuRegion" />
             <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ListOfItem" />
-            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="DetialOfItem" />
-            
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ContentControl Grid.Row="0" prism:RegionManager.RegionName="DetialOfItem" />
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="TabInfo"/>
+            </Grid>
         </Grid>
         
     </Grid>

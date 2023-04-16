@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Experiment.Views.ExperimentItem_RumorDelivery"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border Background="SkyBlue" CornerRadius="0,0,20,20" Margin="5 0 5 5"></Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20 0 20 20" >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                    <Label Content="投放谣言：" Width="100" FontSize="18"/>
+                    <TextBlock Text="{Binding SelectedItem.Rumor.Name}" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Separator BorderBrush="Black" BorderThickness="3"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="创建者：" Width="100" FontSize="18"/>
+                    <TextBlock Text="{Binding SelectedItem.Rumor.CreateName}" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="备注信息：" Width="100" FontSize="18"/>
+                    <TextBlock Text="{Binding SelectedItem.Rumor.Remark}" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="谣言内容：" Width="100" FontSize="18"/>
+                    <TextBlock Text="{Binding SelectedItem.Rumor.MeanString}" FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" Width="350"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="投放步长：" Width="100" FontSize="18"/>
+                    <TextBlock Text="没有定义"  FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="投放个体：" Width="100" FontSize="18"/>
+                    <ComboBox Width="150"  FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
+                    <Label Content="个体属性：" Width="100" FontSize="18"/>
+                    <TextBlock Text="没有东西" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

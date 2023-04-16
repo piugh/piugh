@@ -1,4 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using Domain;
+using Prism.Common;
+using Prism.Regions;
+using Resource.ViewModels;
+using System.Windows.Controls;
 
 namespace agent.Views
 {

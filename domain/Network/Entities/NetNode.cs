@@ -9,9 +9,6 @@ namespace Domain.Network.Entities
 {
     public class NetNode : Data
     {
-
-
-
         public virtual int id { get; set; }
         public virtual ISet<NetEdge> NetEdges1 { get; set; }
         public virtual ISet<NetEdge> NetEdges2 { get; set; }

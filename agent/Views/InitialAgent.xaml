@@ -9,36 +9,15 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Border Background="SkyBlue" CornerRadius="20,20,20,20" Margin="5 5 5 5"></Border>
+        <Border Background="SkyBlue" CornerRadius="20,20,0,0" Margin="5 5 5 0"></Border>
         <!--详细信息模块-->
-        <TabControl Margin="20" SelectedIndex="{Binding TabIndex}">
-            <TabItem Header="基本信息">
-                <ContentControl prism:RegionManager.RegionName="InitialAgentBaseInfoRegion"
-                                prism:RegionManager.RegionContext="{Binding SelectedItem}"/>
+        <TabControl Margin="10" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="基本信息" Height="40">
             </TabItem>
-            <TabItem Header="个体集表格">
-                <Grid >
-                    <DataGrid Name="MyAgentData" AutoGenerateColumns="False" ItemsSource="{Binding SelectedItem.Agents}" IsReadOnly =" True"
-                                  CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="True">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding id}"/>
-                            <DataGridTextColumn Header="年龄" Binding="{Binding Age}"/>
-                            <DataGridTextColumn Header="性别" Binding="{Binding Gender}"/>
-                            <DataGridTextColumn Header="职业" Binding="{Binding Occupation.Name}"/>
-                            <DataGridTextColumn Header="受教育程度" Binding="{Binding EduLevel.Name}"/>
-                            <DataGridTextColumn Header="经度" Binding="{Binding Longitude}"/>
-                            <DataGridTextColumn Header="纬度" Binding="{Binding Latitude}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+            <TabItem Header="统计比例信息" Height="40">
             </TabItem>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <prism:InvokeCommandAction Command="{Binding SelectChangeCrisis}" CommandParameter="{Binding SelectedItem, ElementName=Criseslist}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-
+            <TabItem Header="个体集表格" Height="40">
+            </TabItem>
         </TabControl>
-
     </Grid>
 </UserControl>

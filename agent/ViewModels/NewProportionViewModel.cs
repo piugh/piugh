@@ -89,12 +89,12 @@ namespace agent.ViewModels
             Genders = new();
             Genders.Add(new Gender()
             {
-                BaseInfo = new() { Name = "男" },
+                Name = "男",
                 Value = 0
             });
             Genders.Add(new Gender()
             {
-                BaseInfo = new() { Name = "女" },
+                Name = "女",
                 Value = 0
             });
             //基础信息初始化
@@ -206,11 +206,11 @@ namespace agent.ViewModels
                         foreach (var tmp_gender in tmp_age.TreeDatas)
                         {
                             Gender t = (Gender)tmp_gender.Classify;
-                            if (t.BaseInfo.Name == "男")
+                            if (t.Name == "男")
                             {
                                 ageLevelConfig.MenProportion = tmp_gender.Value;
                             }
-                            if (t.BaseInfo.Name == "女")
+                            if (t.Name == "女")
                             {
                                 ageLevelConfig.WomenProportion = tmp_gender.Value;
                             }
